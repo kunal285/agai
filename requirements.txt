@@ -1,0 +1,9 @@
+# Base runtime; install optional model and UI dependencies with the extras below.
+numpy>=1.24
+Pillow>=10
+PyYAML>=6
+pandas>=2
+scikit-learn>=1.3
+opencv-python-headless>=4.8
+pytest>=8
+# Optional: pip install -e '.[models,app]'

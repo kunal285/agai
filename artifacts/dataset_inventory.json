@@ -1,0 +1,11 @@
+{
+  "root": "data\\DENTEX",
+  "exists": false,
+  "image_count": 0,
+  "annotation_files": [],
+  "images": [],
+  "errors": [
+    "Dataset root does not exist"
+  ],
+  "annotation_summaries": []
+}

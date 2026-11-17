@@ -1,0 +1,36 @@
+project:
+  name: "Agentic AI-Assisted Dental X-ray Screening"
+  seed: 42
+  educational_only: true
+paths:
+  dataset_root: "data/DENTEX"
+  manifests_dir: "artifacts/manifests"
+  reports_dir: "artifacts/reports"
+  crops_dir: "artifacts/crops"
+  detector_checkpoint: "models/detector/best.pt"
+  classifier_checkpoint: "models/classifier/best.pt"
+model:
+  detector_imgsz: 640
+  detector_confidence: 0.25
+  classifier_image_size: 224
+  classifier_architecture: "efficientnet_b0"
+  classifier_confidence_threshold: 0.65
+quality:
+  min_width: 256
+  min_height: 128
+  min_contrast_std: 8.0
+  min_laplacian_variance: 10.0
+  min_brightness: 5.0
+  max_brightness: 250.0
+training:
+  detector_epochs: 50
+  detector_batch: 8
+  classifier_epochs: 20
+  classifier_batch: 16
+  learning_rate: 0.0003
+  num_workers: 2
+classes:
+  - caries
+  - deep_caries
+  - periapical_lesion
+  - impacted_tooth
