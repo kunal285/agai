@@ -70,3 +70,7 @@ def crop_bbox(image: np.ndarray, bbox: list[float], padding: float=0.04) -> tupl
     a=max(0,int(x1-px)); b=max(0,int(y1-py)); c=min(w,int(x2+px)); d=min(h,int(y2+py))
     if c<=a or d<=b: raise ValueError("Bounding box lies outside the image")
     return image[b:d,a:c].copy(),(a,b,c,d)
+
+from dentistry.models.detector_service import YoloDetectorService
+from dentistry.models.classifier_service import EfficientNetClassifierService
+

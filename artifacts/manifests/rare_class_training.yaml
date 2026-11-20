@@ -1,0 +1,9 @@
+names:
+  0: caries
+  1: deep_caries
+  2: periapical_lesion
+  3: impacted_tooth
+path: C:/Users/kunal/Downloads/ai_dentistry_project/ai_dentistry/data/processed/yolo
+test: images/test
+train: C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\artifacts\manifests\rare_class_training.txt
+val: images/val

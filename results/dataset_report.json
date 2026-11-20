@@ -1,0 +1,104 @@
+{
+  "status": "verified",
+  "archive_summary": {
+    "archive_path": "data/archive",
+    "total_files": 3672,
+    "total_images_all_tasks": 3654,
+    "subtasks_discovered": {
+      "quadrant": {
+        "json_file": "data/archive/training_data/training_data/quadrant/train_quadrant.json",
+        "num_images": 693,
+        "num_annotations": 2772,
+        "keys": [
+          "images",
+          "annotations",
+          "categories"
+        ]
+      },
+      "quadrant-enumeration-disease": {
+        "json_file": "data/archive/training_data/training_data/quadrant-enumeration-disease/train_quadrant_enumeration_disease.json",
+        "num_images": 705,
+        "num_annotations": 3529,
+        "keys": [
+          "images",
+          "annotations",
+          "categories_1",
+          "categories_2",
+          "categories_3"
+        ]
+      },
+      "quadrant_enumeration": {
+        "json_file": "data/archive/training_data/training_data/quadrant_enumeration/train_quadrant_enumeration.json",
+        "num_images": 634,
+        "num_annotations": 18095,
+        "keys": [
+          "images",
+          "annotations",
+          "categories_1",
+          "categories_2"
+        ]
+      }
+    }
+  },
+  "disease_detection_task": {
+    "annotation_json": "data/archive/training_data/training_data/quadrant-enumeration-disease/train_quadrant_enumeration_disease.json",
+    "xrays_directory": "data/archive/training_data/training_data/quadrant-enumeration-disease/xrays",
+    "total_images": 705,
+    "corrupted_images": 0,
+    "missing_images": 0,
+    "duplicate_samples": 0,
+    "total_annotations": 3529,
+    "invalid_annotations": 0,
+    "class_distribution": {
+      "caries": {
+        "count": 2189,
+        "percentage": 62.03
+      },
+      "deep_caries": {
+        "count": 578,
+        "percentage": 16.38
+      },
+      "periapical_lesion": {
+        "count": 158,
+        "percentage": 4.48
+      },
+      "impacted_tooth": {
+        "count": 604,
+        "percentage": 17.12
+      }
+    },
+    "class_mappings": {
+      "canonical_classes": [
+        "caries",
+        "deep_caries",
+        "periapical_lesion",
+        "impacted_tooth"
+      ],
+      "dentex_categories_3_to_canonical": {
+        "0 (Impacted)": "impacted_tooth",
+        "1 (Caries)": "caries",
+        "2 (Periapical Lesion)": "periapical_lesion",
+        "3 (Deep Caries)": "deep_caries"
+      }
+    },
+    "image_dimensions": {
+      "width": {
+        "min": 1976,
+        "max": 3139,
+        "mean": 2830.3
+      },
+      "height": {
+        "min": 976,
+        "max": 1536,
+        "mean": 1366.6
+      },
+      "aspect_ratio_mean": 2.08
+    },
+    "bounding_box_stats": {
+      "mean_width": 175.2,
+      "mean_height": 279.9,
+      "mean_area": 48965.8,
+      "mean_aspect_ratio": 0.65
+    }
+  }
+}

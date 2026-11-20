@@ -1,0 +1,611 @@
+Training annotation counts: [1527, 384, 108, 439] Weighted image entries: 823
+Ultralytics 8.4.216  Python-3.13.14 torch-2.15.0+cpu CPU (AMD Ryzen 5 5600H with Radeon Graphics)
+[34m[1mengine\trainer: [0magnostic_nms=False, amp=True, angle=1.0, augment=False, auto_augment=randaugment, batch=4, bgr=0.0, box=7.5, cache=False, cfg=None, channels_last=None, classes=None, close_mosaic=5, cls=0.5, cls_pw=0.0, cls_remap=True, compile=False, conf=None, copy_paste=0.0, copy_paste_mode=flip, cos_lr=True, cutmix=0.0, data=C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\artifacts\manifests\rare_class_training.yaml, degrees=0.0, deterministic=True, device=cpu, dfl=1.5, dgrad=0.5, dis=6.0, distill_model=None, dlam=1.0, dlog=1.0, dnn=False, dropout=0.0, dynamic=False, embed=None, epochs=30, erasing=0.4, exist_ok=False, fliplr=0.5, flipud=0.0, format=torchscript, fraction=1.0, freeze=None, hsv_h=0.0, hsv_s=0.0, hsv_v=0.4, imgsz=640, iou=None, kobj=1.0, line_width=None, lr0=0.0003, lrf=0.01, mask_ratio=4, max_det=300, mixup=0.0, mode=train, model=models/best_model.pt, momentum=0.937, mosaic=1.0, multi_scale=0.0, name=dentex_rare_classes-2, nbs=64, nms=None, opset=None, optimize=False, optimizer=AdamW, overlap_mask=True, patience=8, perspective=0.0, plots=True, pose=12.0, pretrained=True, profile=False, project=runs/train, quantize=None, rect=False, resume=False, retina_masks=False, rle=1.0, save=True, save_conf=False, save_crop=False, save_dir=C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\runs\detect\runs\train\dentex_rare_classes-2, save_frames=False, save_json=False, save_period=-1, save_txt=False, scale=0.5, seed=42, shear=0.0, show=False, show_boxes=True, show_conf=True, show_labels=True, simplify=True, single_cls=False, source=None, split=val, stream_buffer=False, task=detect, tile=False, time=None, tracker=tracktrack.yaml, translate=0.1, val=True, verbose=True, vid_stride=1, visualize=False, warmup_bias_lr=0.1, warmup_epochs=3.0, warmup_momentum=0.8, weight_decay=0.0005, workers=0, workspace=None
+
+                   from  n    params  module                                       arguments                     
+  0                  -1  1       464  ultralytics.nn.modules.conv.Conv             [3, 16, 3, 2]                 
+  1                  -1  1      4672  ultralytics.nn.modules.conv.Conv             [16, 32, 3, 2]                
+  2                  -1  1      7360  ultralytics.nn.modules.block.C2f             [32, 32, 1, True]             
+  3                  -1  1     18560  ultralytics.nn.modules.conv.Conv             [32, 64, 3, 2]                
+  4                  -1  2     49664  ultralytics.nn.modules.block.C2f             [64, 64, 2, True]             
+  5                  -1  1     73984  ultralytics.nn.modules.conv.Conv             [64, 128, 3, 2]               
+  6                  -1  2    197632  ultralytics.nn.modules.block.C2f             [128, 128, 2, True]           
+  7                  -1  1    295424  ultralytics.nn.modules.conv.Conv             [128, 256, 3, 2]              
+  8                  -1  1    460288  ultralytics.nn.modules.block.C2f             [256, 256, 1, True]           
+  9                  -1  1    164608  ultralytics.nn.modules.block.SPPF            [256, 256, 5]                 
+ 10                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 11             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 12                  -1  1    148224  ultralytics.nn.modules.block.C2f             [384, 128, 1]                 
+ 13                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 14             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 15                  -1  1     37248  ultralytics.nn.modules.block.C2f             [192, 64, 1]                  
+ 16                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+ 17            [-1, 12]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 18                  -1  1    123648  ultralytics.nn.modules.block.C2f             [192, 128, 1]                 
+ 19                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+ 20             [-1, 9]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 21                  -1  1    493056  ultralytics.nn.modules.block.C2f             [384, 256, 1]                 
+ 22        [15, 18, 21]  1    752092  ultralytics.nn.modules.head.Detect           [4, 16, None, [64, 128, 256]] 
+Model summary: 129 layers, 3,011,628 parameters, 3,011,612 gradients, 8.2 GFLOPs
+
+Transferred 355/355 items from pretrained weights
+Freezing layer 'model.22.dfl.conv.weight'
+[34m[1mtrain: [0mFast image access  (ping: 2.9±1.7 ms, read: 505.7±100.6 MB/s, size: 4012.9 KB)
+
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 1 images, 0 backgrounds, 0 corrupt: 0% ──────────── 1/823 1.6it/s 0.2s<8:42
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 2 images, 0 backgrounds, 0 corrupt: 0% ──────────── 2/823 4.0it/s 0.3s<3:25
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 11 images, 0 backgrounds, 0 corrupt: 1% ──────────── 11/823 28.8it/s 0.4s<28.2s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 13 images, 0 backgrounds, 0 corrupt: 1% ──────────── 13/823 24.6it/s 0.5s<32.9s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 18 images, 0 backgrounds, 0 corrupt: 2% ──────────── 18/823 31.8it/s 0.6s<25.3s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 24 images, 0 backgrounds, 0 corrupt: 2% ──────────── 24/823 38.3it/s 0.7s<20.9s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 29 images, 0 backgrounds, 0 corrupt: 3% ──────────── 29/823 36.1it/s 0.9s<22.0s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 37 images, 1 backgrounds, 0 corrupt: 4% ╸─────────── 37/823 46.0it/s 1.0s<17.1s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 40 images, 1 backgrounds, 0 corrupt: 4% ╸─────────── 40/823 38.7it/s 1.2s<20.2s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 45 images, 1 backgrounds, 0 corrupt: 5% ╸─────────── 45/823 40.5it/s 1.3s<19.2s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 52 images, 1 backgrounds, 0 corrupt: 6% ╸─────────── 52/823 47.8it/s 1.4s<16.1s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 54 images, 1 backgrounds, 0 corrupt: 6% ╸─────────── 54/823 38.1it/s 1.5s<20.2s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 61 images, 1 backgrounds, 0 corrupt: 7% ╸─────────── 61/823 37.9it/s 1.7s<20.1s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 70 images, 1 backgrounds, 0 corrupt: 8% ━─────────── 70/823 40.6it/s 1.9s<18.5s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 76 images, 1 backgrounds, 0 corrupt: 9% ━─────────── 76/823 39.4it/s 2.1s<19.0s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 80 images, 1 backgrounds, 0 corrupt: 9% ━─────────── 80/823 36.8it/s 2.2s<20.2s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 88 images, 1 backgrounds, 0 corrupt: 10% ━─────────── 88/823 43.2it/s 2.3s<17.0s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 92 images, 1 backgrounds, 0 corrupt: 11% ━─────────── 92/823 41.2it/s 2.4s<17.7s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 98 images, 2 backgrounds, 0 corrupt: 11% ━─────────── 98/823 39.0it/s 2.6s<18.6s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 104 images, 2 backgrounds, 0 corrupt: 12% ━╸────────── 104/823 40.8it/s 2.7s<17.6s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 109 images, 2 backgrounds, 0 corrupt: 13% ━╸────────── 109/823 40.9it/s 2.9s<17.5s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 112 images, 2 backgrounds, 0 corrupt: 13% ━╸────────── 112/823 34.9it/s 3.0s<20.4s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 120 images, 2 backgrounds, 0 corrupt: 14% ━╸────────── 120/823 32.3it/s 3.3s<21.8s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 129 images, 2 backgrounds, 0 corrupt: 15% ━╸────────── 129/823 43.5it/s 3.4s<15.9s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 135 images, 3 backgrounds, 0 corrupt: 16% ━╸────────── 135/823 45.3it/s 3.6s<15.2s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 139 images, 3 backgrounds, 0 corrupt: 16% ━━────────── 139/823 38.9it/s 3.7s<17.6s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 146 images, 3 backgrounds, 0 corrupt: 17% ━━────────── 146/823 44.8it/s 3.9s<15.1s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 150 images, 4 backgrounds, 0 corrupt: 18% ━━────────── 150/823 40.0it/s 4.0s<16.8s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 156 images, 4 backgrounds, 0 corrupt: 18% ━━────────── 156/823 41.9it/s 4.1s<15.9s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 163 images, 4 backgrounds, 0 corrupt: 19% ━━────────── 163/823 40.6it/s 4.3s<16.2s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 171 images, 4 backgrounds, 0 corrupt: 20% ━━────────── 171/823 42.6it/s 4.5s<15.3s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 178 images, 4 backgrounds, 0 corrupt: 21% ━━╸───────── 178/823 45.3it/s 4.6s<14.3s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 179 images, 4 backgrounds, 0 corrupt: 21% ━━╸───────── 179/823 34.2it/s 4.7s<18.8s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 187 images, 4 backgrounds, 0 corrupt: 22% ━━╸───────── 187/823 46.3it/s 4.8s<13.7s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 191 images, 4 backgrounds, 0 corrupt: 23% ━━╸───────── 191/823 44.1it/s 4.9s<14.3s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 192 images, 4 backgrounds, 0 corrupt: 23% ━━╸───────── 192/823 33.4it/s 5.1s<18.9s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 199 images, 4 backgrounds, 0 corrupt: 24% ━━╸───────── 199/823 35.8it/s 5.2s<17.4s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 206 images, 4 backgrounds, 0 corrupt: 25% ━━━───────── 206/823 43.9it/s 5.3s<14.1s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 207 images, 4 backgrounds, 0 corrupt: 25% ━━━───────── 207/823 33.5it/s 5.4s<18.4s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 215 images, 4 backgrounds, 0 corrupt: 26% ━━━───────── 215/823 45.4it/s 5.6s<13.4s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 218 images, 4 backgrounds, 0 corrupt: 26% ━━━───────── 218/823 40.2it/s 5.7s<15.1s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 225 images, 4 backgrounds, 0 corrupt: 27% ━━━───────── 225/823 44.6it/s 5.8s<13.4s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 228 images, 4 backgrounds, 0 corrupt: 27% ━━━───────── 228/823 38.7it/s 5.9s<15.4s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 237 images, 4 backgrounds, 0 corrupt: 28% ━━━───────── 237/823 44.4it/s 6.1s<13.2s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 242 images, 4 backgrounds, 0 corrupt: 29% ━━━╸──────── 242/823 39.3it/s 6.2s<14.8s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 245 images, 4 backgrounds, 0 corrupt: 29% ━━━╸──────── 245/823 36.4it/s 6.3s<15.9s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 251 images, 4 backgrounds, 0 corrupt: 30% ━━━╸──────── 251/823 37.2it/s 6.5s<15.4s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 258 images, 4 backgrounds, 0 corrupt: 31% ━━━╸──────── 258/823 45.5it/s 6.6s<12.4s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 260 images, 4 backgrounds, 0 corrupt: 31% ━━━╸──────── 260/823 34.9it/s 6.8s<16.1s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 268 images, 4 backgrounds, 0 corrupt: 32% ━━━╸──────── 268/823 37.9it/s 7.0s<14.6s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 273 images, 4 backgrounds, 0 corrupt: 33% ━━━╸──────── 273/823 40.8it/s 7.1s<13.5s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 279 images, 4 backgrounds, 0 corrupt: 33% ━━━━──────── 279/823 39.9it/s 7.2s<13.6s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 285 images, 4 backgrounds, 0 corrupt: 34% ━━━━──────── 285/823 39.2it/s 7.4s<13.7s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 290 images, 4 backgrounds, 0 corrupt: 35% ━━━━──────── 290/823 37.9it/s 7.6s<14.1s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 298 images, 4 backgrounds, 0 corrupt: 36% ━━━━──────── 298/823 40.3it/s 7.7s<13.0s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 302 images, 5 backgrounds, 0 corrupt: 36% ━━━━──────── 302/823 35.9it/s 7.9s<14.5s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 307 images, 5 backgrounds, 0 corrupt: 37% ━━━━──────── 307/823 32.0it/s 8.1s<16.1s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 316 images, 5 backgrounds, 0 corrupt: 38% ━━━━╸─────── 316/823 45.7it/s 8.2s<11.1s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 319 images, 5 backgrounds, 0 corrupt: 38% ━━━━╸─────── 319/823 38.4it/s 8.4s<13.1s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 324 images, 5 backgrounds, 0 corrupt: 39% ━━━━╸─────── 324/823 37.8it/s 8.5s<13.2s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 330 images, 5 backgrounds, 0 corrupt: 40% ━━━━╸─────── 330/823 44.0it/s 8.6s<11.2s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 332 images, 5 backgrounds, 0 corrupt: 40% ━━━━╸─────── 332/823 34.1it/s 8.8s<14.4s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 336 images, 5 backgrounds, 0 corrupt: 40% ━━━━╸─────── 336/823 34.9it/s 8.9s<13.9s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 341 images, 6 backgrounds, 0 corrupt: 41% ━━━━╸─────── 341/823 32.3it/s 9.1s<14.9s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 351 images, 6 backgrounds, 0 corrupt: 42% ━━━━━─────── 351/823 39.3it/s 9.3s<12.0s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 353 images, 6 backgrounds, 0 corrupt: 42% ━━━━━─────── 353/823 33.3it/s 9.4s<14.1s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 358 images, 6 backgrounds, 0 corrupt: 43% ━━━━━─────── 358/823 36.9it/s 9.5s<12.6s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 359 images, 6 backgrounds, 0 corrupt: 43% ━━━━━─────── 359/823 28.7it/s 9.6s<16.1s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 361 images, 6 backgrounds, 0 corrupt: 43% ━━━━━─────── 361/823 23.6it/s 9.7s<19.6s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 367 images, 6 backgrounds, 0 corrupt: 44% ━━━━━─────── 367/823 26.8it/s 9.9s<17.0s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 373 images, 6 backgrounds, 0 corrupt: 45% ━━━━━─────── 373/823 34.1it/s 10.0s<13.2s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 375 images, 6 backgrounds, 0 corrupt: 45% ━━━━━─────── 375/823 28.6it/s 10.2s<15.7s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 381 images, 6 backgrounds, 0 corrupt: 46% ━━━━━╸────── 381/823 35.2it/s 10.3s<12.5s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 383 images, 6 backgrounds, 0 corrupt: 46% ━━━━━╸────── 383/823 28.7it/s 10.4s<15.3s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 390 images, 7 backgrounds, 0 corrupt: 47% ━━━━━╸────── 390/823 39.0it/s 10.5s<11.1s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 391 images, 7 backgrounds, 0 corrupt: 47% ━━━━━╸────── 391/823 29.3it/s 10.7s<14.7s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 399 images, 8 backgrounds, 0 corrupt: 48% ━━━━━╸────── 399/823 31.5it/s 10.9s<13.5s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 407 images, 8 backgrounds, 0 corrupt: 49% ━━━━━╸────── 407/823 33.9it/s 11.1s<12.3s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 410 images, 8 backgrounds, 0 corrupt: 49% ━━━━━╸────── 410/823 31.4it/s 11.2s<13.1s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 415 images, 9 backgrounds, 0 corrupt: 50% ━━━━━━────── 415/823 31.9it/s 11.4s<12.8s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 422 images, 9 backgrounds, 0 corrupt: 51% ━━━━━━────── 422/823 35.0it/s 11.5s<11.5s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 423 images, 9 backgrounds, 0 corrupt: 51% ━━━━━━────── 423/823 27.3it/s 11.7s<14.7s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 432 images, 9 backgrounds, 0 corrupt: 52% ━━━━━━────── 432/823 31.9it/s 11.9s<12.2s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 437 images, 9 backgrounds, 0 corrupt: 53% ━━━━━━────── 437/823 34.0it/s 12.0s<11.3s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 442 images, 9 backgrounds, 0 corrupt: 53% ━━━━━━────── 442/823 37.1it/s 12.1s<10.3s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 446 images, 9 backgrounds, 0 corrupt: 54% ━━━━━━╸───── 446/823 35.7it/s 12.2s<10.6s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 452 images, 9 backgrounds, 0 corrupt: 54% ━━━━━━╸───── 452/823 39.3it/s 12.4s<9.5s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 456 images, 9 backgrounds, 0 corrupt: 55% ━━━━━━╸───── 456/823 36.6it/s 12.5s<10.0s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 464 images, 10 backgrounds, 0 corrupt: 56% ━━━━━━╸───── 464/823 46.9it/s 12.6s<7.7s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 466 images, 10 backgrounds, 0 corrupt: 56% ━━━━━━╸───── 466/823 37.0it/s 12.7s<9.6s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 471 images, 10 backgrounds, 0 corrupt: 57% ━━━━━━╸───── 471/823 36.1it/s 12.9s<9.8s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 477 images, 10 backgrounds, 0 corrupt: 57% ━━━━━━╸───── 477/823 35.8it/s 13.1s<9.7s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 485 images, 10 backgrounds, 0 corrupt: 58% ━━━━━━━───── 485/823 34.9it/s 13.3s<9.7s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 493 images, 10 backgrounds, 0 corrupt: 59% ━━━━━━━───── 493/823 40.5it/s 13.5s<8.2s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 500 images, 10 backgrounds, 0 corrupt: 60% ━━━━━━━───── 500/823 48.0it/s 13.6s<6.7s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 502 images, 10 backgrounds, 0 corrupt: 60% ━━━━━━━───── 502/823 38.3it/s 13.7s<8.4s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 507 images, 10 backgrounds, 0 corrupt: 61% ━━━━━━━───── 507/823 41.2it/s 13.8s<7.7s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 511 images, 10 backgrounds, 0 corrupt: 62% ━━━━━━━───── 511/823 40.6it/s 13.9s<7.7s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 516 images, 10 backgrounds, 0 corrupt: 62% ━━━━━━━╸──── 516/823 40.9it/s 14.0s<7.5s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 520 images, 10 backgrounds, 0 corrupt: 63% ━━━━━━━╸──── 520/823 36.3it/s 14.2s<8.4s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 526 images, 10 backgrounds, 0 corrupt: 63% ━━━━━━━╸──── 526/823 35.2it/s 14.4s<8.4s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 534 images, 10 backgrounds, 0 corrupt: 64% ━━━━━━━╸──── 534/823 47.0it/s 14.5s<6.2s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 535 images, 10 backgrounds, 0 corrupt: 65% ━━━━━━━╸──── 535/823 35.9it/s 14.6s<8.0s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 543 images, 10 backgrounds, 0 corrupt: 65% ━━━━━━━╸──── 543/823 35.8it/s 14.8s<7.8s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 547 images, 10 backgrounds, 0 corrupt: 66% ━━━━━━━╸──── 547/823 35.5it/s 14.9s<7.8s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 551 images, 10 backgrounds, 0 corrupt: 66% ━━━━━━━━──── 551/823 32.8it/s 15.1s<8.3s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 557 images, 10 backgrounds, 0 corrupt: 67% ━━━━━━━━──── 557/823 35.5it/s 15.2s<7.5s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 559 images, 10 backgrounds, 0 corrupt: 67% ━━━━━━━━──── 559/823 29.3it/s 15.3s<9.0s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 563 images, 10 backgrounds, 0 corrupt: 68% ━━━━━━━━──── 563/823 30.4it/s 15.5s<8.6s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 569 images, 11 backgrounds, 0 corrupt: 69% ━━━━━━━━──── 569/823 31.6it/s 15.6s<8.0s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 574 images, 11 backgrounds, 0 corrupt: 69% ━━━━━━━━──── 574/823 32.4it/s 15.8s<7.7s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 577 images, 11 backgrounds, 0 corrupt: 70% ━━━━━━━━──── 577/823 31.2it/s 15.9s<7.9s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 583 images, 11 backgrounds, 0 corrupt: 70% ━━━━━━━━╸─── 583/823 34.0it/s 16.0s<7.1s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 586 images, 11 backgrounds, 0 corrupt: 71% ━━━━━━━━╸─── 586/823 30.1it/s 16.2s<7.9s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 592 images, 11 backgrounds, 0 corrupt: 71% ━━━━━━━━╸─── 592/823 35.2it/s 16.3s<6.6s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 596 images, 12 backgrounds, 0 corrupt: 72% ━━━━━━━━╸─── 596/823 31.3it/s 16.5s<7.3s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 602 images, 12 backgrounds, 0 corrupt: 73% ━━━━━━━━╸─── 602/823 34.5it/s 16.6s<6.4s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 608 images, 12 backgrounds, 0 corrupt: 73% ━━━━━━━━╸─── 608/823 31.8it/s 16.9s<6.8s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 616 images, 13 backgrounds, 0 corrupt: 74% ━━━━━━━━╸─── 616/823 33.6it/s 17.1s<6.2s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 619 images, 13 backgrounds, 0 corrupt: 75% ━━━━━━━━━─── 619/823 30.8it/s 17.2s<6.6s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 624 images, 13 backgrounds, 0 corrupt: 75% ━━━━━━━━━─── 624/823 34.8it/s 17.3s<5.7s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 631 images, 13 backgrounds, 0 corrupt: 76% ━━━━━━━━━─── 631/823 36.0it/s 17.5s<5.3s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 632 images, 13 backgrounds, 0 corrupt: 76% ━━━━━━━━━─── 632/823 26.7it/s 17.7s<7.2s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 639 images, 13 backgrounds, 0 corrupt: 77% ━━━━━━━━━─── 639/823 30.4it/s 17.9s<6.0s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 643 images, 14 backgrounds, 0 corrupt: 78% ━━━━━━━━━─── 643/823 27.0it/s 18.1s<6.7s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 647 images, 14 backgrounds, 0 corrupt: 78% ━━━━━━━━━─── 647/823 28.8it/s 18.2s<6.1s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 653 images, 15 backgrounds, 0 corrupt: 79% ━━━━━━━━━╸── 653/823 26.5it/s 18.5s<6.4s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 654 images, 15 backgrounds, 0 corrupt: 79% ━━━━━━━━━╸── 654/823 20.8it/s 18.6s<8.1s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 665 images, 15 backgrounds, 0 corrupt: 80% ━━━━━━━━━╸── 665/823 29.1it/s 18.8s<5.4s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 673 images, 15 backgrounds, 0 corrupt: 81% ━━━━━━━━━╸── 673/823 29.3it/s 19.1s<5.1s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 677 images, 15 backgrounds, 0 corrupt: 82% ━━━━━━━━━╸── 677/823 29.3it/s 19.2s<5.0s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 684 images, 15 backgrounds, 0 corrupt: 83% ━━━━━━━━━╸── 684/823 31.6it/s 19.4s<4.4s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 686 images, 15 backgrounds, 0 corrupt: 83% ━━━━━━━━━━── 686/823 26.9it/s 19.6s<5.1s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 692 images, 15 backgrounds, 0 corrupt: 84% ━━━━━━━━━━── 692/823 35.8it/s 19.7s<3.7s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 694 images, 15 backgrounds, 0 corrupt: 84% ━━━━━━━━━━── 694/823 28.1it/s 19.9s<4.6s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 701 images, 15 backgrounds, 0 corrupt: 85% ━━━━━━━━━━── 701/823 30.2it/s 20.1s<4.0s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 706 images, 15 backgrounds, 0 corrupt: 85% ━━━━━━━━━━── 706/823 35.3it/s 20.2s<3.3s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 709 images, 15 backgrounds, 0 corrupt: 86% ━━━━━━━━━━── 709/823 32.3it/s 20.3s<3.5s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 712 images, 15 backgrounds, 0 corrupt: 86% ━━━━━━━━━━── 712/823 25.4it/s 20.6s<4.4s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 718 images, 15 backgrounds, 0 corrupt: 87% ━━━━━━━━━━── 718/823 33.2it/s 20.7s<3.2s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 724 images, 15 backgrounds, 0 corrupt: 87% ━━━━━━━━━━╸─ 724/823 34.9it/s 20.9s<2.8s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 725 images, 15 backgrounds, 0 corrupt: 88% ━━━━━━━━━━╸─ 725/823 25.8it/s 21.1s<3.8s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 732 images, 16 backgrounds, 0 corrupt: 88% ━━━━━━━━━━╸─ 732/823 25.3it/s 21.4s<3.6s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 739 images, 16 backgrounds, 0 corrupt: 89% ━━━━━━━━━━╸─ 739/823 36.2it/s 21.5s<2.3s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 744 images, 17 backgrounds, 0 corrupt: 90% ━━━━━━━━━━╸─ 744/823 38.4it/s 21.6s<2.1s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 745 images, 17 backgrounds, 0 corrupt: 90% ━━━━━━━━━━╸─ 745/823 28.6it/s 21.8s<2.7s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 752 images, 17 backgrounds, 0 corrupt: 91% ━━━━━━━━━━╸─ 752/823 30.8it/s 22.0s<2.3s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 756 images, 17 backgrounds, 0 corrupt: 91% ━━━━━━━━━━━─ 756/823 31.9it/s 22.1s<2.1s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 758 images, 17 backgrounds, 0 corrupt: 92% ━━━━━━━━━━━─ 758/823 28.0it/s 22.2s<2.3s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 762 images, 17 backgrounds, 0 corrupt: 92% ━━━━━━━━━━━─ 762/823 31.4it/s 22.3s<1.9s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 765 images, 17 backgrounds, 0 corrupt: 92% ━━━━━━━━━━━─ 765/823 27.9it/s 22.5s<2.1s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 770 images, 18 backgrounds, 0 corrupt: 93% ━━━━━━━━━━━─ 770/823 25.4it/s 22.7s<2.1s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 774 images, 18 backgrounds, 0 corrupt: 94% ━━━━━━━━━━━─ 774/823 28.7it/s 22.8s<1.7s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 778 images, 18 backgrounds, 0 corrupt: 94% ━━━━━━━━━━━─ 778/823 30.9it/s 23.0s<1.5s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 780 images, 18 backgrounds, 0 corrupt: 94% ━━━━━━━━━━━─ 780/823 25.0it/s 23.1s<1.7s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 783 images, 18 backgrounds, 0 corrupt: 95% ━━━━━━━━━━━─ 783/823 26.0it/s 23.2s<1.5s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 787 images, 19 backgrounds, 0 corrupt: 95% ━━━━━━━━━━━─ 787/823 23.1it/s 23.5s<1.6s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 789 images, 19 backgrounds, 0 corrupt: 95% ━━━━━━━━━━━╸ 789/823 21.8it/s 23.6s<1.6s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 792 images, 19 backgrounds, 0 corrupt: 96% ━━━━━━━━━━━╸ 792/823 21.6it/s 23.7s<1.4s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 797 images, 19 backgrounds, 0 corrupt: 96% ━━━━━━━━━━━╸ 797/823 28.7it/s 23.8s<0.9s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 801 images, 19 backgrounds, 0 corrupt: 97% ━━━━━━━━━━━╸ 801/823 24.8it/s 24.1s<0.9s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 806 images, 19 backgrounds, 0 corrupt: 97% ━━━━━━━━━━━╸ 806/823 30.5it/s 24.2s<0.6s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 807 images, 19 backgrounds, 0 corrupt: 98% ━━━━━━━━━━━╸ 807/823 23.2it/s 24.4s<0.7s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 812 images, 19 backgrounds, 0 corrupt: 98% ━━━━━━━━━━━╸ 812/823 28.6it/s 24.5s<0.4s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 815 images, 19 backgrounds, 0 corrupt: 99% ━━━━━━━━━━━╸ 815/823 24.6it/s 24.7s<0.3s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 816 images, 19 backgrounds, 0 corrupt: 99% ━━━━━━━━━━━╸ 816/823 20.0it/s 24.8s<0.3s
+[K[34m[1mtrain: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train... 823 images, 19 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 823/823 33.1it/s 24.9s
+[34m[1mtrain: [0mC:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\images\train\train_377.png: 1 duplicate labels removed
+[34m[1mtrain: [0mNew cache created: C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\train.cache
+[34m[1mval: [0mFast image access  (ping: 1.3±0.2 ms, read: 521.7±49.1 MB/s, size: 3272.0 KB)
+
+[K[34m[1mval: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\val... 1 images, 0 backgrounds, 0 corrupt: 0% ──────────── 1/106 1.1it/s 0.3s<1:37
+[K[34m[1mval: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\val... 4 images, 0 backgrounds, 0 corrupt: 3% ──────────── 4/106 6.9it/s 0.4s<14.9s
+[K[34m[1mval: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\val... 10 images, 1 backgrounds, 0 corrupt: 9% ━─────────── 10/106 11.6it/s 0.7s<8.3s
+[K[34m[1mval: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\val... 16 images, 1 backgrounds, 0 corrupt: 15% ━╸────────── 16/106 18.5it/s 0.9s<4.9s
+[K[34m[1mval: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\val... 21 images, 1 backgrounds, 0 corrupt: 19% ━━────────── 21/106 25.7it/s 1.0s<3.3s
+[K[34m[1mval: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\val... 25 images, 1 backgrounds, 0 corrupt: 23% ━━╸───────── 25/106 26.6it/s 1.1s<3.0s
+[K[34m[1mval: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\val... 30 images, 2 backgrounds, 0 corrupt: 28% ━━━───────── 30/106 26.9it/s 1.3s<2.8s
+[K[34m[1mval: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\val... 33 images, 2 backgrounds, 0 corrupt: 31% ━━━╸──────── 33/106 26.1it/s 1.4s<2.8s
+[K[34m[1mval: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\val... 36 images, 2 backgrounds, 0 corrupt: 33% ━━━━──────── 36/106 22.8it/s 1.6s<3.1s
+[K[34m[1mval: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\val... 42 images, 2 backgrounds, 0 corrupt: 39% ━━━━╸─────── 42/106 27.0it/s 1.8s<2.4s
+[K[34m[1mval: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\val... 47 images, 2 backgrounds, 0 corrupt: 44% ━━━━━─────── 47/106 33.8it/s 1.9s<1.7s
+[K[34m[1mval: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\val... 48 images, 2 backgrounds, 0 corrupt: 45% ━━━━━─────── 48/106 25.3it/s 2.1s<2.3s
+[K[34m[1mval: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\val... 52 images, 2 backgrounds, 0 corrupt: 49% ━━━━━╸────── 52/106 26.5it/s 2.2s<2.0s
+[K[34m[1mval: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\val... 56 images, 2 backgrounds, 0 corrupt: 52% ━━━━━━────── 56/106 28.4it/s 2.3s<1.8s
+[K[34m[1mval: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\val... 58 images, 2 backgrounds, 0 corrupt: 54% ━━━━━━╸───── 58/106 23.5it/s 2.5s<2.0s
+[K[34m[1mval: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\val... 64 images, 2 backgrounds, 0 corrupt: 60% ━━━━━━━───── 64/106 24.3it/s 2.7s<1.7s
+[K[34m[1mval: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\val... 66 images, 2 backgrounds, 0 corrupt: 62% ━━━━━━━───── 66/106 21.9it/s 2.9s<1.8s
+[K[34m[1mval: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\val... 72 images, 2 backgrounds, 0 corrupt: 67% ━━━━━━━━──── 72/106 25.8it/s 3.0s<1.3s
+[K[34m[1mval: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\val... 75 images, 2 backgrounds, 0 corrupt: 70% ━━━━━━━━──── 75/106 23.7it/s 3.2s<1.3s
+[K[34m[1mval: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\val... 82 images, 3 backgrounds, 0 corrupt: 77% ━━━━━━━━━─── 82/106 27.4it/s 3.4s<0.9s
+[K[34m[1mval: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\val... 83 images, 3 backgrounds, 0 corrupt: 78% ━━━━━━━━━─── 83/106 22.1it/s 3.5s<1.0s
+[K[34m[1mval: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\val... 90 images, 4 backgrounds, 0 corrupt: 84% ━━━━━━━━━━── 90/106 27.8it/s 3.7s<0.6s
+[K[34m[1mval: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\val... 92 images, 4 backgrounds, 0 corrupt: 86% ━━━━━━━━━━── 92/106 25.2it/s 3.8s<0.6s
+[K[34m[1mval: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\val... 93 images, 4 backgrounds, 0 corrupt: 87% ━━━━━━━━━━╸─ 93/106 20.3it/s 3.9s<0.6s
+[K[34m[1mval: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\val... 98 images, 4 backgrounds, 0 corrupt: 92% ━━━━━━━━━━━─ 98/106 25.2it/s 4.0s<0.3s
+[K[34m[1mval: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\val... 99 images, 4 backgrounds, 0 corrupt: 93% ━━━━━━━━━━━─ 99/106 20.5it/s 4.1s<0.3s
+[K[34m[1mval: [0mScanning C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\val... 106 images, 4 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 106/106 25.6it/s 4.1s
+[34m[1mval: [0mNew cache created: C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\data\processed\yolo\labels\val.cache
+[34m[1moptimizer:[0m AdamW(lr=0.0003, momentum=0.937) with parameter groups 57 weight(decay=0.0), 64 weight(decay=0.0005), 63 bias(decay=0.0)
+Plotting labels to C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\runs\detect\runs\train\dentex_rare_classes-2\labels.jpg... 
+Using 823 train, 106 val images for fraction=1.0 at imgsz=640
+Using 0 dataloader workers
+Logging results to [1mC:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\runs\detect\runs\train\dentex_rare_classes-2[0m
+Starting training for 30 epochs...
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+
+[K       1/30         0G      1.825      3.529      1.305         16        640: 0% ──────────── 0/206  7.1s
+[K       1/30         0G      1.825      3.529      1.305         16        640: 0% ──────────── 1/206 2.2it/s 7.2s<1:35
+[K       1/30         0G      1.715      3.471      1.329         23        640: 0% ──────────── 1/206 1.5it/s 13.1s<2:16
+[K       1/30         0G      1.715      3.471      1.329         23        640: 0% ──────────── 2/206 3.3it/s 13.2s<1:01
+[K       1/30         0G      1.648      3.283      1.271         32        640: 0% ──────────── 2/206 2.3it/s 18.1s<1:28
+[K       1/30         0G      1.648      3.283      1.271         32        640: 1% ──────────── 3/206 3.5it/s 18.2s<57.9s
+[K       1/30         0G      1.615      3.222      1.262         22        640: 1% ──────────── 3/206 2.5it/s 23.5s<1:23
+[K       1/30         0G      1.603      3.205      1.246         34        640: 1% ──────────── 4/206 1.8it/s 26.8s<1:52
+[K       1/30         0G      1.649      3.156      1.255         46        640: 2% ──────────── 5/206 1.4it/s 29.9s<2:27
+[K       1/30         0G      1.671      3.108      1.246         59        640: 2% ──────────── 6/206 1.1it/s 33.0s<3:10
+[K       1/30         0G       1.66      3.094      1.256         13        640: 3% ──────────── 7/206 1.2s/it 35.8s<3:56
+[K       1/30         0G      1.626      3.033      1.239         45        640: 3% ──────────── 8/206 1.6s/it 44.3s<5:16
+[K       1/30         0G      1.628      2.971      1.249         37        640: 4% ╸─────────── 9/206 2.2s/it 58.8s<7:09
+[K       1/30         0G      1.627      2.969      1.253         43        640: 4% ╸─────────── 10/206 2.6s/it 1:04<8:35
+[K       1/30         0G      1.621      2.917      1.259         25        640: 5% ╸─────────── 11/206 3.1s/it 1:10<10:14
+[K       1/30         0G      1.608      2.888      1.247         60        640: 5% ╸─────────── 12/206 3.3s/it 1:14<10:47
+[K       1/30         0G      1.584      2.833      1.242         45        640: 6% ╸─────────── 13/206 3.8s/it 1:19<12:09
+[K       1/30         0G      1.581      2.814      1.247         25        640: 6% ╸─────────── 14/206 4.7s/it 1:30<14:59
+[K       1/30         0G      1.573      2.785      1.243         52        640: 7% ╸─────────── 15/206 5.1s/it 1:36<16:17
+[K       1/30         0G      1.558      2.767      1.239         28        640: 7% ╸─────────── 16/206 5.8s/it 1:45<18:21
+[K       1/30         0G       1.56      2.765      1.245         58        640: 8% ╸─────────── 17/206 7.2s/it 2:01<22:34
+[K       1/30         0G      1.566      2.749      1.245         42        640: 8% ━─────────── 18/206 6.9s/it 2:07<21:40
+[K       1/30         0G      1.569       2.74      1.242         52        640: 9% ━─────────── 19/206 7.7s/it 2:17<23:59
+[K       1/30         0G       1.58      2.763      1.249         30        640: 9% ━─────────── 20/206 6.5s/it 2:22<20:08
+[K       1/30         0G      1.574      2.724      1.248         36        640: 10% ━─────────── 21/206 5.1s/it 2:26<15:47
+[K       1/30         0G      1.599      2.856      1.285          6        640: 10% ━─────────── 22/206 4.2s/it 2:29<12:46
+[K       1/30         0G      1.604      2.844      1.292         51        640: 11% ━─────────── 23/206 3.5s/it 2:31<10:49
+[K       1/30         0G      1.605      2.823       1.29         38        640: 11% ━─────────── 24/206 3.2s/it 2:34<9:39
+[K       1/30         0G      1.604      2.806      1.295         47        640: 12% ━─────────── 25/206 2.9s/it 2:36<8:45
+[K       1/30         0G      1.605      2.792      1.294         54        640: 12% ━╸────────── 26/206 2.7s/it 2:39<8:14
+[K       1/30         0G      1.605      2.767        1.3         36        640: 13% ━╸────────── 27/206 2.6s/it 2:41<7:54
+[K       1/30         0G        1.6      2.759      1.295         54        640: 13% ━╸────────── 28/206 2.6s/it 2:44<7:47
+[K       1/30         0G      1.597      2.748      1.295         52        640: 14% ━╸────────── 29/206 2.6s/it 2:46<7:37
+[K       1/30         0G      1.592      2.741      1.293         26        640: 14% ━╸────────── 30/206 2.6s/it 2:49<7:34
+[K       1/30         0G      1.596      2.733      1.289         76        640: 15% ━╸────────── 31/206 2.5s/it 2:51<7:24
+[K       1/30         0G      1.588      2.722      1.285         57        640: 15% ━╸────────── 32/206 2.6s/it 2:54<7:26
+[K       1/30         0G      1.588      2.718      1.285         29        640: 16% ━╸────────── 33/206 2.5s/it 2:56<7:05
+[K       1/30         0G      1.582      2.708      1.283         47        640: 16% ━╸────────── 34/206 2.5s/it 2:58<7:07
+[K       1/30         0G       1.59      2.713      1.287         37        640: 16% ━━────────── 35/206 2.3s/it 3:01<6:41
+[K       1/30         0G      1.588      2.708      1.283         36        640: 17% ━━────────── 36/206 2.4s/it 3:03<6:41
+[K       1/30         0G      1.586        2.7      1.284         31        640: 17% ━━────────── 37/206 2.4s/it 3:06<6:49
+[K       1/30         0G      1.585      2.705      1.286         22        640: 18% ━━────────── 38/206 2.4s/it 3:08<6:42
+[K       1/30         0G       1.58      2.701      1.284         29        640: 18% ━━────────── 39/206 2.3s/it 3:10<6:26
+[K       1/30         0G      1.575      2.694      1.282         32        640: 19% ━━────────── 40/206 2.3s/it 3:12<6:26
+[K       1/30         0G      1.573       2.69      1.282         60        640: 19% ━━────────── 41/206 2.3s/it 3:15<6:16
+[K       1/30         0G       1.57      2.687       1.28         35        640: 20% ━━────────── 42/206 2.3s/it 3:17<6:12
+[K       1/30         0G      1.567      2.681      1.277         65        640: 20% ━━╸───────── 43/206 2.2s/it 3:19<6:01
+[K       1/30         0G      1.563      2.669      1.274         56        640: 21% ━━╸───────── 44/206 2.3s/it 3:21<6:06
+[K       1/30         0G       1.56      2.659      1.273         57        640: 21% ━━╸───────── 45/206 2.2s/it 3:23<5:58
+[K       1/30         0G      1.557      2.663      1.272         15        640: 22% ━━╸───────── 46/206 2.2s/it 3:26<5:57
+[K       1/30         0G      1.563      2.665      1.275         30        640: 22% ━━╸───────── 47/206 2.2s/it 3:28<5:51
+[K       1/30         0G      1.558      2.659      1.275         45        640: 23% ━━╸───────── 48/206 2.3s/it 3:30<6:00
+[K       1/30         0G      1.556      2.649      1.272         77        640: 23% ━━╸───────── 49/206 2.4s/it 3:33<6:15
+[K       1/30         0G      1.553       2.64      1.273         31        640: 24% ━━╸───────── 50/206 2.5s/it 3:36<6:24
+[K       1/30         0G       1.55      2.634      1.274         42        640: 24% ━━╸───────── 51/206 2.5s/it 3:38<6:31
+[K       1/30         0G      1.552      2.631      1.275         58        640: 25% ━━━───────── 52/206 2.4s/it 3:41<6:13
+[K       1/30         0G       1.55      2.622      1.273         42        640: 25% ━━━───────── 53/206 2.3s/it 3:43<5:59
+[K       1/30         0G      1.546      2.615      1.271         41        640: 26% ━━━───────── 54/206 2.3s/it 3:45<5:54
+[K       1/30         0G      1.544      2.606      1.271         60        640: 26% ━━━───────── 55/206 2.3s/it 3:47<5:44
+[K       1/30         0G      1.541        2.6      1.269         40        640: 27% ━━━───────── 56/206 2.3s/it 3:50<5:49
+[K       1/30         0G      1.537      2.594      1.267         43        640: 27% ━━━───────── 57/206 2.4s/it 3:52<5:55
+[K       1/30         0G      1.532       2.59      1.267         27        640: 28% ━━━───────── 58/206 2.4s/it 3:54<5:50
+[K       1/30         0G      1.534      2.587      1.268         42        640: 28% ━━━───────── 59/206 2.3s/it 3:57<5:35
+[K       1/30         0G      1.535      2.586      1.268         49        640: 29% ━━━───────── 60/206 2.3s/it 3:59<5:30
+[K       1/30         0G      1.532      2.578      1.265         49        640: 29% ━━━╸──────── 61/206 2.2s/it 4:01<5:22
+[K       1/30         0G      1.527       2.57      1.263         44        640: 30% ━━━╸──────── 62/206 2.4s/it 4:04<5:51
+[K       1/30         0G      1.525      2.564      1.263         38        640: 30% ━━━╸──────── 63/206 2.8s/it 4:08<6:34
+[K       1/30         0G      1.528      2.571      1.267         27        640: 31% ━━━╸──────── 64/206 3.0s/it 4:12<7:05
+[K       1/30         0G      1.525      2.563      1.267         36        640: 31% ━━━╸──────── 65/206 3.5s/it 4:17<8:11
+[K       1/30         0G      1.522      2.558      1.264         50        640: 32% ━━━╸──────── 66/206 4.2s/it 4:26<9:50
+[K       1/30         0G       1.52      2.558      1.262         28        640: 32% ━━━╸──────── 67/206 4.1s/it 4:30<9:34
+[K       1/30         0G      1.518      2.553      1.262         37        640: 33% ━━━╸──────── 68/206 4.2s/it 4:34<9:33
+[K       1/30         0G      1.515      2.549      1.261         28        640: 33% ━━━━──────── 69/206 4.7s/it 4:41<10:44
+[K       1/30         0G      1.514      2.545       1.26         50        640: 33% ━━━━──────── 70/206 5.2s/it 4:47<11:42
+[K       1/30         0G      1.514      2.543      1.259         52        640: 34% ━━━━──────── 71/206 6.0s/it 4:57<13:31
+[K       1/30         0G      1.514       2.54      1.263         25        640: 34% ━━━━──────── 72/206 5.6s/it 5:02<12:24
+[K       1/30         0G       1.51      2.535       1.26         35        640: 35% ━━━━──────── 73/206 5.1s/it 5:06<11:19
+[K       1/30         0G      1.509       2.53      1.259         35        640: 35% ━━━━──────── 74/206 5.5s/it 5:13<12:03
+[K       1/30         0G      1.505      2.527      1.257         36        640: 36% ━━━━──────── 75/206 5.7s/it 5:19<12:29
+[K       1/30         0G      1.511      2.527      1.258         84        640: 36% ━━━━──────── 76/206 5.4s/it 5:24<11:43
+[K       1/30         0G      1.515      2.527      1.259         45        640: 37% ━━━━──────── 77/206 5.6s/it 5:30<12:07
+[K       1/30         0G      1.516      2.523      1.259         29        640: 37% ━━━━╸─────── 78/206 6.0s/it 5:37<12:49
+[K       1/30         0G      1.516      2.521      1.257         50        640: 38% ━━━━╸─────── 79/206 6.3s/it 5:44<13:23
+[K       1/30         0G      1.518      2.519      1.256         59        640: 38% ━━━━╸─────── 80/206 5.0s/it 5:48<10:30
+[K       1/30         0G      1.515      2.515      1.255         34        640: 39% ━━━━╸─────── 81/206 5.3s/it 5:54<11:08
+[K       1/30         0G      1.513      2.511      1.254         45        640: 39% ━━━━╸─────── 82/206 5.7s/it 6:01<11:50
+[K       1/30         0G      1.512      2.506      1.252         46        640: 40% ━━━━╸─────── 83/206 5.5s/it 6:06<11:21
+[K       1/30         0G      1.511      2.503      1.252         24        640: 40% ━━━━╸─────── 84/206 5.7s/it 6:12<11:40
+[K       1/30         0G       1.51        2.5      1.251         45        640: 41% ━━━━╸─────── 85/206 6.6s/it 6:22<13:14
+[K       1/30         0G      1.507      2.496       1.25         38        640: 41% ━━━━━─────── 86/206 6.9s/it 6:30<13:44
+[K       1/30         0G      1.506      2.493       1.25         50        640: 42% ━━━━━─────── 87/206 6.7s/it 6:36<13:20
+[K       1/30         0G      1.509      2.491      1.252         32        640: 42% ━━━━━─────── 88/206 6.4s/it 6:42<12:39
+[K       1/30         0G       1.51      2.488       1.25         60        640: 43% ━━━━━─────── 89/206 6.2s/it 6:48<12:08
+[K       1/30         0G      1.507      2.485      1.248         37        640: 43% ━━━━━─────── 90/206 6.7s/it 6:56<12:54
+[K       1/30         0G      1.506      2.482      1.248         21        640: 44% ━━━━━─────── 91/206 6.1s/it 7:01<11:45
+[K       1/30         0G      1.506      2.485      1.249         32        640: 44% ━━━━━─────── 92/206 5.3s/it 7:05<10:00
+[K       1/30         0G      1.506      2.484      1.248         36        640: 45% ━━━━━─────── 93/206 4.7s/it 7:09<8:52
+[K       1/30         0G      1.505      2.481      1.246         48        640: 45% ━━━━━─────── 94/206 5.1s/it 7:15<9:34
+[K       1/30         0G      1.505      2.479      1.246         83        640: 46% ━━━━━╸────── 95/206 5.4s/it 7:21<9:58
+[K       1/30         0G      1.504      2.473      1.245         39        640: 46% ━━━━━╸────── 96/206 6.2s/it 7:31<11:19
+[K       1/30         0G      1.504      2.471      1.247         35        640: 47% ━━━━━╸────── 97/206 7.0s/it 7:41<12:41
+[K       1/30         0G      1.503      2.467      1.245         61        640: 47% ━━━━━╸────── 98/206 8.2s/it 7:55<14:48
+[K       1/30         0G      1.503      2.464      1.245         50        640: 48% ━━━━━╸────── 99/206 9.3s/it 8:08<16:36
+[K       1/30         0G      1.502      2.462      1.246         36        640: 48% ━━━━━╸────── 100/206 8.0s/it 8:14<14:03
+[K       1/30         0G      1.503       2.46      1.246         40        640: 49% ━━━━━╸────── 101/206 5.3s/it 8:17<9:20
+[K       1/30         0G      1.504      2.462      1.245         27        640: 49% ━━━━━╸────── 102/206 4.5s/it 8:21<7:44
+[K       1/30         0G      1.501      2.459      1.244         32        640: 50% ━━━━━━────── 103/206 4.6s/it 8:26<7:53
+[K       1/30         0G      1.502      2.457      1.243         51        640: 50% ━━━━━━────── 104/206 4.1s/it 8:29<7:01
+[K       1/30         0G        1.5      2.455      1.243         49        640: 50% ━━━━━━────── 105/206 3.7s/it 8:32<6:16
+[K       1/30         0G      1.499      2.455      1.244         29        640: 51% ━━━━━━────── 106/206 4.5s/it 8:41<7:32
+[K       1/30         0G        1.5      2.454      1.243         31        640: 51% ━━━━━━────── 107/206 5.0s/it 8:48<8:19
+[K       1/30         0G      1.499      2.452      1.242         41        640: 52% ━━━━━━────── 108/206 6.3s/it 9:04<10:21
+[K       1/30         0G      1.497      2.452      1.241         30        640: 52% ━━━━━━────── 109/206 7.5s/it 9:17<12:11
+[K       1/30         0G      1.497      2.449      1.241         42        640: 53% ━━━━━━────── 110/206 5.8s/it 9:21<9:16
+[K       1/30         0G      1.496      2.446      1.241         50        640: 53% ━━━━━━────── 111/206 7.5s/it 9:43<11:48
+[K       1/30         0G      1.494      2.442      1.239         23        640: 54% ━━━━━━╸───── 112/206 8.8s/it 9:59<13:49
+[K       1/30         0G      1.492      2.438      1.238         81        640: 54% ━━━━━━╸───── 113/206 9.4s/it 10:10<14:33
+[K       1/30         0G      1.491      2.434      1.238         45        640: 55% ━━━━━━╸───── 114/206 7.2s/it 10:15<11:00
+[K       1/30         0G      1.491      2.432      1.237         69        640: 55% ━━━━━━╸───── 115/206 5.4s/it 10:18<8:10
+[K       1/30         0G      1.495      2.434       1.24         34        640: 56% ━━━━━━╸───── 116/206 4.8s/it 10:22<7:10
+[K       1/30         0G      1.495      2.431      1.239         41        640: 56% ━━━━━━╸───── 117/206 4.4s/it 10:25<6:34
+[K       1/30         0G      1.494      2.432      1.238         36        640: 57% ━━━━━━╸───── 118/206 4.3s/it 10:30<6:19
+[K       1/30         0G      1.497      2.431      1.237         54        640: 57% ━━━━━━╸───── 119/206 4.1s/it 10:33<5:57
+[K       1/30         0G      1.496      2.428      1.237         41        640: 58% ━━━━━━╸───── 120/206 4.1s/it 10:37<5:57
+[K       1/30         0G      1.494      2.426      1.237         34        640: 58% ━━━━━━━───── 121/206 3.5s/it 10:40<5:01
+[K       1/30         0G      1.493      2.425      1.236         38        640: 59% ━━━━━━━───── 122/206 3.3s/it 10:43<4:37
+[K       1/30         0G      1.493      2.422      1.236         48        640: 59% ━━━━━━━───── 123/206 3.3s/it 10:46<4:31
+[K       1/30         0G      1.494      2.421      1.235         57        640: 60% ━━━━━━━───── 124/206 3.4s/it 10:50<4:39
+[K       1/30         0G      1.492       2.42      1.234         27        640: 60% ━━━━━━━───── 125/206 3.9s/it 10:56<5:13
+[K       1/30         0G       1.49      2.418      1.234         40        640: 61% ━━━━━━━───── 126/206 4.1s/it 11:00<5:29
+[K       1/30         0G       1.49      2.414      1.233         65        640: 61% ━━━━━━━───── 127/206 4.3s/it 11:05<5:36
+[K       1/30         0G       1.49      2.412      1.232         50        640: 62% ━━━━━━━───── 128/206 4.9s/it 11:12<6:21
+[K       1/30         0G      1.489      2.409      1.232         54        640: 62% ━━━━━━━╸──── 129/206 5.2s/it 11:18<6:37
+[K       1/30         0G      1.489      2.407      1.231         35        640: 63% ━━━━━━━╸──── 130/206 5.9s/it 11:27<7:25
+[K       1/30         0G      1.488      2.405       1.23         56        640: 63% ━━━━━━━╸──── 131/206 6.5s/it 11:36<8:10
+[K       1/30         0G      1.487      2.402       1.23         78        640: 64% ━━━━━━━╸──── 132/206 6.3s/it 11:42<7:48
+[K       1/30         0G      1.486        2.4      1.231         26        640: 64% ━━━━━━━╸──── 133/206 4.9s/it 11:45<5:56
+[K       1/30         0G      1.486      2.398       1.23         29        640: 65% ━━━━━━━╸──── 134/206 4.9s/it 11:50<5:52
+[K       1/30         0G      1.485      2.397       1.23         27        640: 65% ━━━━━━━╸──── 135/206 5.2s/it 11:56<6:10
+[K       1/30         0G      1.483      2.396      1.229         55        640: 66% ━━━━━━━╸──── 136/206 5.5s/it 12:02<6:23
+[K       1/30         0G      1.485      2.394       1.23         24        640: 66% ━━━━━━━╸──── 137/206 6.0s/it 12:10<6:54
+[K       1/30         0G      1.483      2.395       1.23         19        640: 66% ━━━━━━━━──── 138/206 6.1s/it 12:16<6:55
+[K       1/30         0G      1.483      2.393      1.229         40        640: 67% ━━━━━━━━──── 139/206 6.3s/it 12:23<7:02
+[K       1/30         0G      1.483      2.391       1.23         38        640: 67% ━━━━━━━━──── 140/206 6.4s/it 12:30<7:01
+[K       1/30         0G      1.483       2.39       1.23         32        640: 68% ━━━━━━━━──── 141/206 8.4s/it 13:01<9:04
+[K       1/30         0G      1.485      2.388       1.23         93        640: 68% ━━━━━━━━──── 142/206 9.3s/it 13:13<9:56
+[K       1/30         0G      1.485      2.387       1.23         50        640: 69% ━━━━━━━━──── 143/206 6.7s/it 13:17<7:01
+[K       1/30         0G      1.485      2.386       1.23         27        640: 69% ━━━━━━━━──── 144/206 5.9s/it 13:22<6:03
+[K       1/30         0G      1.485      2.383      1.229         51        640: 70% ━━━━━━━━──── 145/206 6.8s/it 13:33<6:57
+[K       1/30         0G      1.484      2.383      1.229         39        640: 70% ━━━━━━━━╸─── 146/206 6.8s/it 13:40<6:50
+[K       1/30         0G      1.484      2.381      1.229         53        640: 71% ━━━━━━━━╸─── 147/206 7.2s/it 13:48<7:07
+[K       1/30         0G      1.483      2.383      1.229         18        640: 71% ━━━━━━━━╸─── 148/206 8.7s/it 14:05<8:27
+[K       1/30         0G      1.482      2.382       1.23         47        640: 72% ━━━━━━━━╸─── 149/206 7.6s/it 14:11<7:12
+[K       1/30         0G      1.481      2.386      1.229         20        640: 72% ━━━━━━━━╸─── 150/206 5.6s/it 14:15<5:15
+[K       1/30         0G      1.482      2.386       1.23         45        640: 73% ━━━━━━━━╸─── 151/206 4.6s/it 14:18<4:14
+[K       1/30         0G      1.481      2.385      1.229         37        640: 73% ━━━━━━━━╸─── 152/206 4.1s/it 14:21<3:42
+[K       1/30         0G      1.483      2.387       1.23         39        640: 74% ━━━━━━━━╸─── 153/206 3.5s/it 14:24<3:05
+[K       1/30         0G      1.482      2.385      1.229         40        640: 74% ━━━━━━━━╸─── 154/206 3.2s/it 14:26<2:48
+[K       1/30         0G      1.482      2.383      1.228         32        640: 75% ━━━━━━━━━─── 155/206 3.5s/it 14:31<2:57
+[K       1/30         0G       1.48      2.388      1.228         15        640: 75% ━━━━━━━━━─── 156/206 3.5s/it 14:34<2:55
+[K       1/30         0G       1.48      2.389      1.229         19        640: 76% ━━━━━━━━━─── 157/206 3.4s/it 14:37<2:45
+[K       1/30         0G      1.478       2.39       1.23         13        640: 76% ━━━━━━━━━─── 158/206 3.3s/it 14:41<2:40
+[K       1/30         0G      1.476      2.388      1.229         27        640: 77% ━━━━━━━━━─── 159/206 3.2s/it 14:43<2:29
+[K       1/30         0G      1.475      2.386      1.228         49        640: 77% ━━━━━━━━━─── 160/206 2.9s/it 14:46<2:14
+[K       1/30         0G      1.475      2.385      1.227         35        640: 78% ━━━━━━━━━─── 161/206 2.9s/it 14:49<2:09
+[K       1/30         0G      1.475      2.385      1.227         28        640: 78% ━━━━━━━━━─── 162/206 2.9s/it 14:51<2:06
+[K       1/30         0G      1.475      2.384      1.226         65        640: 79% ━━━━━━━━━─── 163/206 2.7s/it 14:54<1:55
+[K       1/30         0G      1.476      2.383      1.226         55        640: 79% ━━━━━━━━━╸── 164/206 2.6s/it 14:56<1:49
+[K       1/30         0G      1.476      2.381      1.226         34        640: 80% ━━━━━━━━━╸── 165/206 2.8s/it 15:00<1:55
+[K       1/30         0G      1.478      2.379      1.226         57        640: 80% ━━━━━━━━━╸── 166/206 3.8s/it 15:22<2:33
+[K       1/30         0G      1.477      2.378      1.226         39        640: 81% ━━━━━━━━━╸── 167/206 4.9s/it 15:38<3:12
+[K       1/30         0G      1.478      2.377      1.227         54        640: 81% ━━━━━━━━━╸── 168/206 5.7s/it 15:46<3:36
+[K       1/30         0G      1.478       2.38      1.227         20        640: 82% ━━━━━━━━━╸── 169/206 4.6s/it 15:50<2:50
+[K       1/30         0G      1.477       2.38      1.227         35        640: 82% ━━━━━━━━━╸── 170/206 3.5s/it 15:52<2:07
+[K       1/30         0G      1.478      2.382      1.227         25        640: 83% ━━━━━━━━━╸── 171/206 3.3s/it 15:55<1:55
+[K       1/30         0G      1.477       2.38      1.226         27        640: 83% ━━━━━━━━━━── 172/206 3.0s/it 15:57<1:43
+[K       1/30         0G      1.476      2.379      1.226         45        640: 83% ━━━━━━━━━━── 173/206 2.9s/it 16:00<1:36
+[K       1/30         0G      1.474      2.377      1.225         33        640: 84% ━━━━━━━━━━── 174/206 2.9s/it 16:03<1:33
+[K       1/30         0G      1.474      2.376      1.224         68        640: 84% ━━━━━━━━━━── 175/206 2.9s/it 16:06<1:28
+[K       1/30         0G      1.472      2.374      1.224         46        640: 85% ━━━━━━━━━━── 176/206 2.9s/it 16:09<1:28
+[K       1/30         0G      1.471      2.374      1.224         29        640: 85% ━━━━━━━━━━── 177/206 2.9s/it 16:12<1:24
+[K       1/30         0G      1.471      2.373      1.223         34        640: 86% ━━━━━━━━━━── 178/206 2.7s/it 16:14<1:15
+[K       1/30         0G      1.471      2.372      1.223         39        640: 86% ━━━━━━━━━━── 179/206 2.6s/it 16:16<1:10
+[K       1/30         0G      1.471      2.373      1.223         38        640: 87% ━━━━━━━━━━── 180/206 2.5s/it 16:19<1:06
+[K       1/30         0G      1.471      2.372      1.223         62        640: 87% ━━━━━━━━━━╸─ 181/206 2.5s/it 16:21<1:01
+[K       1/30         0G      1.472      2.371      1.222         41        640: 88% ━━━━━━━━━━╸─ 182/206 2.6s/it 16:24<1:02
+[K       1/30         0G      1.471       2.37      1.221         48        640: 88% ━━━━━━━━━━╸─ 183/206 3.0s/it 16:29<1:10
+[K       1/30         0G      1.471      2.369      1.221         55        640: 89% ━━━━━━━━━━╸─ 184/206 3.6s/it 16:36<1:20
+[K       1/30         0G      1.472      2.369      1.221         64        640: 89% ━━━━━━━━━━╸─ 185/206 3.4s/it 16:39<1:11
+[K       1/30         0G      1.473      2.369       1.22         38        640: 90% ━━━━━━━━━━╸─ 186/206 3.1s/it 16:41<1:03
+[K       1/30         0G      1.473      2.369      1.221         21        640: 90% ━━━━━━━━━━╸─ 187/206 3.0s/it 16:44<57.0s
+[K       1/30         0G      1.474      2.369       1.22         61        640: 91% ━━━━━━━━━━╸─ 188/206 2.9s/it 16:47<52.4s
+[K       1/30         0G      1.474      2.368       1.22         76        640: 91% ━━━━━━━━━━━─ 189/206 2.8s/it 16:49<47.4s
+[K       1/30         0G      1.474      2.366      1.219         76        640: 92% ━━━━━━━━━━━─ 190/206 2.9s/it 16:52<45.7s
+[K       1/30         0G      1.474      2.365      1.219         70        640: 92% ━━━━━━━━━━━─ 191/206 2.9s/it 16:55<43.3s
+[K       1/30         0G      1.474      2.365      1.219         66        640: 93% ━━━━━━━━━━━─ 192/206 2.8s/it 16:58<39.4s
+[K       1/30         0G      1.473      2.363      1.218         52        640: 93% ━━━━━━━━━━━─ 193/206 3.1s/it 17:02<39.8s
+[K       1/30         0G      1.473      2.361      1.218         52        640: 94% ━━━━━━━━━━━─ 194/206 3.3s/it 17:06<39.4s
+[K       1/30         0G      1.472       2.36      1.218         45        640: 94% ━━━━━━━━━━━─ 195/206 3.4s/it 17:09<37.1s
+[K       1/30         0G      1.473      2.359      1.218         45        640: 95% ━━━━━━━━━━━─ 196/206 3.7s/it 17:14<37.0s
+[K       1/30         0G      1.472      2.357      1.218         36        640: 95% ━━━━━━━━━━━─ 197/206 4.7s/it 17:27<42.4s
+[K       1/30         0G      1.473      2.355      1.218         61        640: 96% ━━━━━━━━━━━╸ 198/206 5.7s/it 17:38<45.5s
+[K       1/30         0G      1.473      2.354      1.218         30        640: 96% ━━━━━━━━━━━╸ 199/206 6.7s/it 17:50<47.1s
+[K       1/30         0G      1.472      2.353      1.218         40        640: 97% ━━━━━━━━━━━╸ 200/206 7.8s/it 18:02<46.8s
+[K       1/30         0G      1.471      2.352      1.217         29        640: 97% ━━━━━━━━━━━╸ 201/206 6.9s/it 18:08<34.7s
+[K       1/30         0G      1.471      2.351      1.217         34        640: 98% ━━━━━━━━━━━╸ 202/206 5.9s/it 18:12<23.7s
+[K       1/30         0G      1.469       2.35      1.217         46        640: 98% ━━━━━━━━━━━╸ 203/206 5.2s/it 18:16<15.6s
+[K       1/30         0G      1.468      2.348      1.216         51        640: 99% ━━━━━━━━━━━╸ 204/206 5.3s/it 18:22<10.6s
+[K       1/30         0G      1.469      2.348      1.216         47        640: 99% ━━━━━━━━━━━╸ 205/206 4.9s/it 18:26<4.9s
+[K       1/30         0G      1.469      2.348      1.216         47        640: 100% ━━━━━━━━━━━━ 206/206 5.4s/it 18:26
+
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 7% ╸─────────── 1/14 11.7s/it 3.5s<2:32
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 14% ━╸────────── 2/14 5.2s/it 5.8s<1:02
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 21% ━━╸───────── 3/14 3.8s/it 8.1s<41.6s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 28% ━━━───────── 4/14 3.1s/it 10.3s<31.2s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 35% ━━━━──────── 5/14 2.7s/it 12.3s<24.2s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 42% ━━━━━─────── 6/14 2.8s/it 15.3s<22.1s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 50% ━━━━━━────── 7/14 2.4s/it 17.2s<17.1s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 57% ━━━━━━╸───── 8/14 2.3s/it 19.2s<13.7s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 64% ━━━━━━━╸──── 9/14 2.1s/it 21.0s<10.5s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 71% ━━━━━━━━╸─── 10/14 2.0s/it 22.7s<8.0s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 78% ━━━━━━━━━─── 11/14 2.0s/it 24.7s<5.9s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 85% ━━━━━━━━━━── 12/14 2.0s/it 26.9s<4.1s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 92% ━━━━━━━━━━━─ 13/14 2.2s/it 29.6s<2.2s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 14/14 2.2s/it 30.4s
+                   all        106        540      0.458      0.309      0.234      0.132
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+
+[K       2/30         0G      1.274      2.052      1.135         43        640: 0% ──────────── 0/206  5.2s
+[K       2/30         0G      1.325      2.051      1.106         33        640: 0% ──────────── 1/206 11.2s/it 8.6s<38:11
+[K       2/30         0G      1.316      2.005      1.129         59        640: 0% ──────────── 2/206 10.2s/it 17.0s<34:41
+[K       2/30         0G      1.319      2.001      1.129         55        640: 1% ──────────── 3/206 6.2s/it 20.3s<21:02
+[K       2/30         0G       1.34      2.022      1.145         45        640: 1% ──────────── 4/206 4.7s/it 23.3s<15:53
+[K       2/30         0G      1.358      2.137       1.16         13        640: 2% ──────────── 5/206 5.1s/it 29.6s<17:04
+[K       2/30         0G      1.385      2.137      1.169         33        640: 2% ──────────── 6/206 4.4s/it 33.0s<14:43
+[K       2/30         0G      1.421      2.155      1.184         40        640: 3% ──────────── 7/206 4.5s/it 37.6s<14:50
+[K       2/30         0G      1.401      2.155      1.181         43        640: 3% ──────────── 8/206 4.6s/it 42.3s<15:02
+[K       2/30         0G      1.412      2.149      1.184         53        640: 4% ╸─────────── 9/206 5.1s/it 49.5s<16:47
+[K       2/30         0G      1.403       2.16       1.18         23        640: 4% ╸─────────── 10/206 5.0s/it 54.2s<16:18
+[K       2/30         0G      1.393      2.169      1.175         44        640: 5% ╸─────────── 11/206 6.1s/it 1:06<19:44
+[K       2/30         0G      1.399      2.161      1.182         39        640: 5% ╸─────────── 12/206 6.5s/it 1:14<21:04
+[K       2/30         0G      1.408      2.198      1.192         23        640: 6% ╸─────────── 13/206 4.8s/it 1:17<15:19
+[K       2/30         0G      1.401      2.196      1.181         42        640: 6% ╸─────────── 14/206 4.5s/it 1:21<14:17
+[K       2/30         0G      1.393       2.18      1.175         66        640: 7% ╸─────────── 15/206 4.1s/it 1:25<13:08
+[K       2/30         0G      1.383      2.199      1.178         14        640: 7% ╸─────────── 16/206 5.5s/it 1:47<17:16
+[K       2/30         0G      1.383      2.188      1.176         49        640: 8% ╸─────────── 17/206 7.1s/it 2:11<22:24
+[K       2/30         0G      1.377      2.163      1.171         71        640: 8% ━─────────── 18/206 8.5s/it 2:27<26:35
+[K       2/30         0G      1.377       2.16       1.17         49        640: 9% ━─────────── 19/206 11.0s/it 3:03<34:19
+[K       2/30         0G      1.379      2.148      1.174         53        640: 9% ━─────────── 20/206 12.5s/it 3:21<38:45
+[K       2/30         0G       1.38      2.132       1.17         48        640: 10% ━─────────── 21/206 10.2s/it 3:28<31:25
+[K       2/30         0G      1.385      2.126      1.169         41        640: 10% ━─────────── 22/206 8.3s/it 3:34<25:24
+[K       2/30         0G      1.376      2.122      1.168         51        640: 11% ━─────────── 23/206 8.8s/it 3:44<26:49
+[K       2/30         0G      1.375       2.12      1.169         59        640: 11% ━─────────── 24/206 8.6s/it 3:52<26:02
+[K       2/30         0G      1.369      2.137       1.17         19        640: 12% ━─────────── 25/206 6.4s/it 3:56<19:13
+[K       2/30         0G      1.379      2.131      1.184         38        640: 12% ━╸────────── 26/206 7.1s/it 4:06<21:20
+[K       2/30         0G       1.39      2.135      1.185         49        640: 13% ━╸────────── 27/206 6.5s/it 4:11<19:20
+[K       2/30         0G      1.382      2.131      1.181         28        640: 13% ━╸────────── 28/206 7.3s/it 4:21<21:31
+[K       2/30         0G      1.383      2.133      1.179         43        640: 14% ━╸────────── 29/206 7.5s/it 4:29<22:07
+[K       2/30         0G      1.388      2.138      1.182         47        640: 14% ━╸────────── 30/206 5.8s/it 4:33<17:09
+[K       2/30         0G       1.39       2.14       1.18         42        640: 15% ━╸────────── 31/206 4.6s/it 4:36<13:23
+[K       2/30         0G      1.387      2.155      1.179         19        640: 15% ━╸────────── 32/206 5.3s/it 4:45<15:24
+[K       2/30         0G       1.38      2.142      1.177         41        640: 16% ━╸────────── 33/206 6.1s/it 4:54<17:39
+[K       2/30         0G      1.385      2.144      1.182         47        640: 16% ━╸────────── 34/206 6.1s/it 5:00<17:33
+[K       2/30         0G      1.381      2.149      1.182         25        640: 16% ━━────────── 35/206 7.0s/it 5:11<20:02
+[K       2/30         0G      1.374      2.149      1.181         21        640: 17% ━━────────── 36/206 8.4s/it 5:27<23:49
+[K       2/30         0G      1.376      2.146      1.179         44        640: 17% ━━────────── 37/206 10.2s/it 5:47<28:42
+[K       2/30         0G       1.37      2.135      1.176         55        640: 18% ━━────────── 38/206 10.8s/it 5:59<30:18
+[K       2/30         0G      1.367      2.131      1.173         52        640: 18% ━━────────── 39/206 10.5s/it 6:09<29:18
+[K       2/30         0G       1.37       2.13      1.172         77        640: 19% ━━────────── 40/206 9.4s/it 6:17<26:03
+[K       2/30         0G      1.373      2.124       1.17         74        640: 19% ━━────────── 41/206 12.0s/it 6:50<32:57
+[K       2/30         0G      1.371      2.119      1.174         31        640: 20% ━━────────── 42/206 13.2s/it 7:07<36:11
+[K       2/30         0G      1.369      2.121      1.176         37        640: 20% ━━╸───────── 43/206 16.6s/it 7:48<45:09
+[K       2/30         0G      1.368      2.129      1.176         26        640: 21% ━━╸───────── 44/206 12.4s/it 7:56<33:34
+[K       2/30         0G      1.369      2.148       1.18         15        640: 21% ━━╸───────── 45/206 13.2s/it 8:12<35:28
+[K       2/30         0G      1.366      2.141      1.179         50        640: 22% ━━╸───────── 46/206 12.2s/it 8:22<32:27
+[K       2/30         0G      1.372      2.136      1.179         74        640: 22% ━━╸───────── 47/206 8.8s/it 8:27<23:23
+[K       2/30         0G       1.37      2.127      1.177         43        640: 23% ━━╸───────── 48/206 6.1s/it 8:31<15:56
+[K       2/30         0G      1.366       2.13      1.177         32        640: 23% ━━╸───────── 49/206 5.8s/it 8:36<15:06
+[K       2/30         0G      1.361       2.12      1.175         33        640: 24% ━━╸───────── 50/206 5.7s/it 8:42<14:56
+[K       2/30         0G      1.359      2.116      1.173         43        640: 24% ━━╸───────── 51/206 4.8s/it 8:45<12:27
+[K       2/30         0G      1.359      2.116      1.171         56        640: 25% ━━━───────── 52/206 3.9s/it 8:48<10:07
+[K       2/30         0G      1.358       2.11      1.171         62        640: 25% ━━━───────── 53/206 3.6s/it 8:51<9:12
+[K       2/30         0G      1.356      2.103      1.171         45        640: 26% ━━━───────── 54/206 3.3s/it 8:54<8:23
+[K       2/30         0G      1.356      2.097       1.17         47        640: 26% ━━━───────── 55/206 3.2s/it 8:57<7:57
+[K       2/30         0G      1.358      2.091      1.172         53        640: 27% ━━━───────── 56/206 3.3s/it 9:01<8:22
+[K       2/30         0G       1.36      2.088      1.172         82        640: 27% ━━━───────── 57/206 3.8s/it 9:06<9:24
+[K       2/30         0G      1.357      2.084       1.17         53        640: 28% ━━━───────── 58/206 4.8s/it 9:18<11:45
+[K       2/30         0G      1.354       2.08      1.169         42        640: 28% ━━━───────── 59/206 4.5s/it 9:22<11:09
+[K       2/30         0G      1.356       2.08      1.169         55        640: 29% ━━━───────── 60/206 4.8s/it 9:28<11:37
+[K       2/30         0G      1.356      2.076      1.166         52        640: 29% ━━━╸──────── 61/206 4.4s/it 9:31<10:33
+[K       2/30         0G      1.359      2.074      1.167         64        640: 30% ━━━╸──────── 62/206 3.9s/it 9:34<9:15
+[K       2/30         0G      1.356       2.07      1.164         35        640: 30% ━━━╸──────── 63/206 3.5s/it 9:37<8:25
+[K       2/30         0G      1.354       2.07      1.165         34        640: 31% ━━━╸──────── 64/206 3.2s/it 9:40<7:32
+[K       2/30         0G      1.354      2.071      1.165         36        640: 31% ━━━╸──────── 65/206 3.2s/it 9:43<7:25
+[K       2/30         0G      1.356      2.071      1.167         30        640: 32% ━━━╸──────── 66/206 3.8s/it 9:50<8:49
+[K       2/30         0G      1.356      2.072      1.166         39        640: 32% ━━━╸──────── 67/206 4.0s/it 9:55<9:18
+[K       2/30         0G      1.357       2.07      1.166         56        640: 33% ━━━╸──────── 68/206 4.6s/it 10:02<10:36
+[K       2/30         0G      1.358      2.069      1.166         40        640: 33% ━━━━──────── 69/206 5.1s/it 10:09<11:43
+[K       2/30         0G      1.361      2.071      1.166         52        640: 33% ━━━━──────── 70/206 4.4s/it 10:12<10:01
+[K       2/30         0G      1.363      2.072      1.166         60        640: 34% ━━━━──────── 71/206 4.2s/it 10:16<9:31
+[K       2/30         0G      1.361      2.075      1.167         24        640: 34% ━━━━──────── 72/206 3.8s/it 10:19<8:26
+[K       2/30         0G      1.362      2.078      1.167         25        640: 35% ━━━━──────── 73/206 3.7s/it 10:22<8:11
+[K       2/30         0G      1.363      2.076      1.166         57        640: 35% ━━━━──────── 74/206 3.6s/it 10:26<7:59
+[K       2/30         0G      1.366      2.074      1.166         49        640: 36% ━━━━──────── 75/206 4.0s/it 10:31<8:48
+[K       2/30         0G      1.365      2.072      1.166         29        640: 36% ━━━━──────── 76/206 5.1s/it 10:45<11:08
+[K       2/30         0G      1.364      2.075      1.166         15        640: 37% ━━━━──────── 77/206 5.7s/it 10:53<12:17
+[K       2/30         0G      1.367      2.081      1.168         24        640: 37% ━━━━╸─────── 78/206 4.9s/it 10:57<10:21
+[K       2/30         0G      1.366      2.078      1.167         40        640: 38% ━━━━╸─────── 79/206 4.4s/it 11:00<9:23
+[K       2/30         0G      1.366      2.078      1.167         40        640: 38% ━━━━╸─────── 80/206 2.9s/it 11:02<6:06
+Traceback (most recent call last):
+  File "C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\.venv\train_rare_classes.py", line 20, in <module>
+    model.train(data=str(config.resolve()), epochs=30, patience=8, imgsz=640, batch=4, device='cpu', workers=0, fraction=1.0, project='runs/train', name='dentex_rare_classes', exist_ok=False, seed=42, optimizer='AdamW', lr0=0.0003, cos_lr=True, close_mosaic=5, hsv_h=0.0, hsv_s=0.0, save=True, plots=True)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\.venv\Lib\site-packages\ultralytics\engine\model.py", line 901, in train
+    self.trainer.train()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\.venv\Lib\site-packages\ultralytics\engine\trainer.py", line 264, in train
+    self._do_train()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\.venv\Lib\site-packages\ultralytics\engine\trainer.py", line 560, in _do_train
+    loss, self.loss_items = self.model(batch)
+                            ~~~~~~~~~~^^^^^^^
+  File "C:\Users\kunal\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\nn\modules\module.py", line 1787, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\kunal\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\nn\modules\module.py", line 1798, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\.venv\Lib\site-packages\ultralytics\nn\tasks.py", line 162, in forward
+    return self.loss(x, *args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\.venv\Lib\site-packages\ultralytics\nn\tasks.py", line 468, in loss
+    preds = self.forward(batch["img"])
+  File "C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\.venv\Lib\site-packages\ultralytics\nn\tasks.py", line 163, in forward
+    return self.predict(x, *args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\.venv\Lib\site-packages\ultralytics\nn\tasks.py", line 180, in predict
+    return self._predict_once(x, profile, embed)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\.venv\Lib\site-packages\ultralytics\nn\tasks.py", line 202, in _predict_once
+    x = m(x)  # run
+  File "C:\Users\kunal\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\nn\modules\module.py", line 1787, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\kunal\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\nn\modules\module.py", line 1798, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\.venv\Lib\site-packages\ultralytics\nn\modules\block.py", line 324, in forward
+    y = list(self.cv1(x).chunk(2, 1))
+             ~~~~~~~~^^^
+  File "C:\Users\kunal\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\nn\modules\module.py", line 1787, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\kunal\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\nn\modules\module.py", line 1798, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\kunal\Downloads\ai_dentistry_project\ai_dentistry\.venv\Lib\site-packages\ultralytics\nn\modules\conv.py", line 87, in forward
+    return self.act(self.bn(self.conv(x)))
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kunal\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\nn\modules\module.py", line 1787, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\kunal\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\nn\modules\module.py", line 1798, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\kunal\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\nn\modules\activation.py", line 476, in forward
+    return F.silu(input, inplace=self.inplace)
+           ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kunal\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\nn\functional.py", line 2451, in silu
+    return torch._C._nn.silu(input)
+           ~~~~~~~~~~~~~~~~~^^^^^^^
+RuntimeError: [enforce fail at alloc_cpu.cpp:117] data. DefaultCPUAllocator: not enough memory: you tried to allocate 6553600 bytes.

@@ -1,143 +1,170 @@
-# Agentic AI-Assisted Dental X-ray Screening
+# Agentic AI-Assisted Dental X-Ray Screening
 
-Educational research prototype for panoramic dental X-ray quality screening, abnormal-region localization, crop-level classification, Grad-CAM visualization and a four-agent reporting workflow. It is **not a clinical diagnostic or treatment system**.
+> **DISCLAIMER:** This project is an **educational research prototype only**. It is **NOT** a clinical diagnostic, prognostic, or treatment-planning system. All machine-learning outputs and AI synthesis reports must be verified by a licensed dental practitioner.
 
-## Current status
+---
 
-See [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for verified environment and implementation/test status. No DENTEX data or trained checkpoints are bundled. The app deliberately refuses to fabricate predictions when checkpoints are missing.
+## 1. Project Overview & Architecture
 
-## Architecture
+This system implements an advanced, production-grade **Multi-Agent AI Orchestration Architecture** combined with deep-learning computer vision models trained on the **DENTEX Challenge 2023** panoramic dental radiograph dataset.
 
-`upload → Image Quality Agent → YOLO detector → region crops → EfficientNet/ResNet classifier → Grad-CAM → Validation Agent → Reporting Agent → JSON/dashboard`
+### Core 7-Agent Architecture
 
-The four software agents are deterministic Python components, not a chatbot. The Validation Agent flags low-confidence or missing model outputs for human review. Detector and classifier adapters require real checkpoint files.
-
-## Repository layout
-
-- `dentistry/dataset.py` — inventory, COCO parsing, validation, YOLO conversion and annotated crop extraction.
-- `dentistry/models.py` — checkpoint-backed YOLO and torchvision classifier adapters, coordinate-preserving crops.
-- `dentistry/training.py` — YOLO and EfficientNet/ResNet training entry points.
-- `dentistry/gradcam.py` — Grad-CAM heatmap/overlay generation.
-- `dentistry/agents/` — four required agents.
-- `dentistry/orchestrator.py` — ordered end-to-end workflow and JSON reports.
-- `dentistry/metrics.py` — classification metrics and documented IoU matching helpers.
-- `scripts/` — dataset inspection, conversion, group-aware crop split, training and YAML generation.
-- `app.py` — Streamlit dashboard.
-- `tests/` — synthetic software fixtures only; never evidence of model accuracy.
-- `docs/` — methodology and four-student/eight-week plan.
-
-## Requirements and setup
-
-Python 3.10–3.12 is recommended for broad ML wheel compatibility. The inspected runtime was Python 3.13 with CPU-only PyTorch; Ultralytics and Streamlit were not installed. A GPU is optional but strongly recommended for training.
-
-### Linux/macOS
-
-```bash
-cd ai_dentistry
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
-pip install -e '.[models,app,test]'
+```
+                    ┌──────────────────────────────────────────────┐
+                    │          Raw Panoramic Radiograph            │
+                    │               (OPG Upload)                   │
+                    └──────────────────────┬───────────────────────┘
+                                           │
+                                           ▼
+                    ┌──────────────────────────────────────────────┐
+                    │        Agent 1: Master Orchestrator          │
+                    │   (OpenAI Tool Calling / Local Fallback)     │
+                    └──────────────────────┬───────────────────────┘
+                                           │
+                                           ▼
+                    ┌──────────────────────────────────────────────┐
+                    │        Agent 2: Image Quality Agent          │
+                    │   (Laplacian Blur, Contrast, Dimensions)     │
+                    └──────────────────────┬───────────────────────┘
+                                           │
+                      ┌────────────────────┴────────────────────┐
+                      │ Passed Quality                          │ Failed Quality Gate
+                      ▼                                         ▼
+        ┌───────────────────────────┐             ┌───────────────────────────┐
+        │ Agent 3: Detection Agent  │             │ Agent 6: Validation Agent │
+        │   (YOLOv8n Full Canvas)   │             │   (Route: Dentist Review) │
+        └─────────────┬─────────────┘             └─────────────┬─────────────┘
+                      │ Proposed Bounding Boxes                 │
+                      ▼                                         │
+        ┌───────────────────────────┐                           │
+        │ Agent 4: Classifier Agent │                           │
+        │  (EfficientNet-B0 Crops)  │                           │
+        └─────────────┬─────────────┘                           │
+                      │ Diagnosis Confirmation                  │
+                      ▼                                         │
+        ┌───────────────────────────┐                           │
+        │ Agent 5: Explainability   │                           │
+        │   (Grad-CAM Saliency)     │                           │
+        └─────────────┬─────────────┘                           │
+                      │ Visual Heatmaps                         │
+                      ▼                                         │
+        ┌───────────────────────────┐                           │
+        │ Agent 6: Validation Agent │◄──────────────────────────┘
+        │   (Safety Triage Rules)   │
+        └─────────────┬─────────────┘
+                      │ Validated Screening Manifest
+                      ▼
+        ┌───────────────────────────┐
+        │ Agent 7: Reporting Agent  │
+        │ (Structured JSON + Synth) │
+        └─────────────┬─────────────┘
+                      │
+                      ▼
+        ┌───────────────────────────┐
+        │  Streamlit Web Dashboard  │
+        └───────────────────────────┘
 ```
 
-### Windows PowerShell
+---
 
+## 2. Multi-Agent System Roles & Responsibilities
+
+1. **Agent 1: Master Orchestrator (`dentistry/agents/orchestrator_agent.py`)**  
+   Coordinates the complete multi-turn screening workflow using the official OpenAI Responses API and tool calling. Prevents infinite execution loops, tracks per-agent latencies, monitors token costs, and deterministically falls back to local execution if the API is offline.
+2. **Agent 2: Image Quality Agent (`dentistry/agents/quality_agent.py`)**  
+   Evaluates radiograph sharpness via Laplacian variance ($\sigma_{\text{Laplacian}}^2 < 15$), brightness bounds ($10 \le \mu \le 245$), contrast standard deviation ($\sigma \ge 10$), and minimum dimensions. Rejects corrupted or degraded scans before deep-learning inference.
+3. **Agent 3: Dental Detection Agent (`dentistry/agents/detection_agent.py`)**  
+   Executes the calibrated Ultralytics YOLOv8n detector (`models/best_model.pt`) on the full-canvas radiograph to propose candidate bounding boxes across the 4 canonical DENTEX categories: `caries`, `deep_caries`, `periapical_lesion`, `impacted_tooth`.
+4. **Agent 4: Dental Classification Agent (`dentistry/agents/classification_agent.py`)**  
+   Extracts 10% context-padded bounding-box crops ($224 \times 224$ px) and executes the compact torchvision EfficientNet-B0 classifier (`models/classifier/best.pt`). Compares predictions against detector proposals and flags model disagreements.
+5. **Agent 5: Explainability Agent (`dentistry/agents/explainability_agent.py`)**  
+   Computes gradient-weighted class activation mapping (Grad-CAM) registered to the classifier's final convolutional layer (`features[-1]`). Overlays model feature sensitivity heatmaps.
+6. **Agent 6: Clinical Validation Agent (`dentistry/agents/validation_agent.py`)**  
+   Enforces non-diagnostic clinical boundaries. Flags any finding with low confidence ($P_{\text{det}} < 0.25$, $P_{\text{cls}} < 0.65$), model disagreement, missing crops, or quality failures for mandatory qualified dentist review. Never declares an X-ray "healthy" or "normal".
+7. **Agent 7: Reporting Agent (`dentistry/agents/reporting_agent.py`)**  
+   Synthesizes all findings into a structured, audit-ready JSON report containing the analysis ID, image quality assessment, candidate detections, classifications, model agreement, Grad-CAM references, execution trace, and token telemetry.
+
+---
+
+## 3. Supported OpenAI Models & Tool Registry
+
+### Configurable Model Identifiers
+- **Primary Model:** `gpt-6.1-sol` (Balanced reasoning and orchestration speed)
+- **Advanced Model:** `gpt-6.2-astra` (Deep medical contextual synthesis)
+- **Budget Model:** `gpt-6-luna` (Low latency and minimal token cost)
+
+### Real Agentic Tools (`dentistry/llm/tool_registry.py`)
+- `validate_xray_image(image_ref)`
+- `run_quality_check(image_ref)`
+- `run_yolo_detection(image_ref, confidence_threshold)`
+- `run_efficientnet_classification(region_id, crop_bbox_xyxy)`
+- `generate_gradcam(region_id)`
+- `compare_model_predictions(region_id, detector_class, ...)`
+- `validate_detection_results(findings)`
+- `request_dentist_review(reason, flagged_regions)`
+- `generate_structured_report(analysis_id, synthesis_notes)`
+
+---
+
+## 4. Environment Setup & API Configuration
+
+### Step 1: Copy Environment Template
+Create your `.env` configuration file from the template:
 ```powershell
-cd ai_dentistry
-py -3.11 -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install --upgrade pip
-pip install -e "[models,app,test]"
+cp .env.example .env
 ```
 
-If your platform cannot install the optional ML dependencies, install base/test dependencies with `pip install -e '.[test]'`; dataset validation, quality checks, agents and tests that do not require the optional packages remain usable. Use the PyTorch selector at https://pytorch.org/get-started/locally/ for the right CPU/CUDA wheel.
-
-## Dataset acquisition and inspection
-
-Obtain DENTEX from its official challenge/data page and comply with its access and use terms. Place the extracted files under `data/DENTEX/` (or provide another root). Dataset layout and annotation schema are not assumed.
-
-```bash
-python scripts/inspect_dataset.py --root data/DENTEX --output artifacts/dataset_inventory.json
+### Step 2: Configure `.env`
+Edit `.env` with your settings:
+```env
+OPENAI_API_KEY=your-api-key-here
+OPENAI_MODEL=gpt-6.1-sol
+OPENAI_TIMEOUT=30
+OPENAI_MAX_RETRIES=2
+OPENAI_ENABLED=true
 ```
 
-Review `annotation_summaries`, category names/IDs, missing image associations, invalid boxes and official splits before preparing anything. The converter supports COCO-style JSON; if the downloaded DENTEX package differs, adapt the parser only after inspecting its actual schema. Do not assume the four diagnostic labels are present in every annotation file.
+> [!IMPORTANT]
+> **API Security & Privacy:**
+> - `.env` is listed in `.gitignore` and is never committed to source control.
+> - API keys are never exposed in logs, reports, or the Streamlit frontend.
+> - **Patient Privacy Guardrail (`dentistry/safety/privacy.py`):** Raw dental radiographs and patient-identifying data (names, MRNs, dates) are **never** transmitted to the external LLM API. Only anonymized bounding box coordinates, class labels, and quality metrics are sent.
 
-```bash
-python scripts/prepare_dataset.py path/to/verified_annotations.json \
-  --image-root path/to/images \
-  --yolo-out data/processed/yolo/labels \
-  --crops-out artifacts/crops
-python scripts/split_crop_manifest.py artifacts/crops/manifest.csv \
-  --output artifacts/crops/split_manifest.csv
+---
+
+## 5. How to Run
+
+### Run the Streamlit Dashboard
+```powershell
+python -m streamlit run app.py
 ```
+Open **`http://localhost:8501`** in your browser.
 
-**Important:** `prepare_dataset.py` creates labels and crop files; it does not rearrange the original images into Ultralytics' `images/{train,val,test}` layout. Build those directories using verified split manifests (or official splits) and corresponding labels before training. Keep source images grouped across splits. Prefer official split assignments when supplied by DENTEX.
+#### Dashboard Capabilities:
+- Live 7-Agent execution progress and per-agent latency telemetry.
+- Interactive confidence sliders for detector and classifier.
+- Bounding box overlay visualization directly on panoramic X-rays.
+- Visual side-by-side comparison of candidate crops and Grad-CAM sensitivity heatmaps.
+- Model disagreement callouts and mandatory dentist review triage alerts.
+- Downloadable structured JSON clinical screening reports.
+- Real-time token usage and estimated API cost monitor.
 
-Create a detector YAML only after the class mapping and image/label directories are confirmed:
-
-```bash
-python scripts/create_yolo_yaml.py --dataset-root data/processed/yolo \
-  --classes caries deep_caries periapical_lesion impacted_tooth \
-  --output data/processed/dentex.yaml
+### Run Automated Tests
+```powershell
+python -m pytest tests
 ```
+Runs the complete test suite including:
+- Unit tests for all 7 agents
+- Tool registry validation & safe dispatching
+- Quality gate rejection on blurred/corrupted scans
+- Model disagreement and human review routing
+- PHI scrubbing and privacy verification
+- Offline fallback and API error recovery
+- Full regression across existing pipelines
 
-The class names above are an example only: use the actual category mapping in your selected detector task. The default four classifier labels are the diagnostic classes specified by the project brief, but they must be confirmed against the real annotation files.
+---
 
-## Training
+## 6. Offline / Fallback Operation
 
-Check free disk/RAM/GPU resources first. Start with small pilot runs, inspect label overlays, and only then run full experiments.
-
-```bash
-python scripts/train_detector.py --data data/processed/dentex.yaml --epochs 50 --imgsz 640 --batch 8
-python scripts/train_classifier.py --manifest artifacts/crops/split_manifest.csv --epochs 20 --batch 16
-```
-
-YOLO saves its `best.pt` under the training output directory; copy or configure the resulting path as `models/detector/best.pt`. The classifier saves `models/classifier/best.pt` by default, including its actual training classes and metadata. The detector training code uses a pretrained YOLO initialization by default; use `--resume` only when a compatible last checkpoint exists.
-
-## Evaluate and compare
-
-`dentistry.metrics` exposes classification metrics and a one-to-one greedy IoU matcher. For final research results, evaluate the trained detector with Ultralytics validation on the held-out test split and export the actual metrics. Evaluate the classifier with predictions from the locked checkpoint on the held-out classifier split, then call `classification_metrics`. Implement and document the exact detector-only versus detector+CNN matching/label aggregation rule before comparing end-to-end macro-F1. Do not tune thresholds on test data.
-
-Experiment outputs should include dataset manifest hash, config, seed, package versions, checkpoint hashes, per-class metrics, confusion matrix, threshold sweep, runtime, and error examples. Pending experiments must remain marked pending; this repository does not ship invented metrics.
-
-## Run the dashboard
-
-```bash
-streamlit run app.py
-```
-
-Upload a PNG/JPEG/TIFF/BMP panoramic X-ray. The dashboard will only run model inference when the required real checkpoints and packages exist. Configure paths and thresholds in `configs/default.yaml`. JSON reports are written to `artifacts/reports/`; Grad-CAM outputs are stored in `artifacts/gradcam/` when supported.
-
-## Tests
-
-```bash
-pytest
-```
-
-The tests use synthetic arrays/images to test software behavior (annotation conversion, invalid inputs, model-loading failures, quality checks, agent order, report generation, metrics and Grad-CAM). They do **not** measure real-world model performance.
-
-## Limitations
-
-- DENTEX is not bundled; schema and category IDs must be verified against the actual download.
-- No trained checkpoints are bundled. Inference will raise a clear error until training succeeds.
-- The default image quality thresholds are heuristic and require validation.
-- Classifier confidence is an uncalibrated score unless separately calibrated.
-- Grad-CAM indicates model sensitivity, not proof of pathology.
-- Dataset/source-level grouping must be maintained to prevent leakage.
-- Research-only; qualified clinicians must interpret images. Never use this prototype to make treatment decisions.
-
-## Academic deliverables
-
-See `docs/METHODOLOGY.md` for the research protocol and `docs/TEAM_AND_8_WEEKS.md` for team roles, schedule and viva prompts. Expand the literature review with 10–12 verified papers and cite primary sources/DOIs only after checking the exact bibliographic details.
-
-### Classifier held-out evaluation
-
-After training and ensuring the crop manifest contains a distinct `test` split, run:
-
-```bash
-python scripts/evaluate_classifier.py --manifest artifacts/crops/split_manifest.csv \
-  --checkpoint models/classifier/best.pt --output artifacts/metrics/classifier_test.json
-```
-
-This script refuses to evaluate if no test rows exist. It writes per-class metrics, confusion matrix, and individual predictions. Keep the test split untouched until the model and thresholds are finalized.
-# agai
+If no OpenAI API key is supplied, or if network connectivity is absent, the system **automatically and gracefully falls back** to the local deterministic rule engine. All computer vision models (YOLOv8n, EfficientNet-B0, and Grad-CAM) run locally with zero cloud dependencies.

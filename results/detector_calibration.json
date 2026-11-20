@@ -1,0 +1,1552 @@
+{
+  "metric": "Class-aware macro-F1 at IoU 0.50",
+  "image_counts": {
+    "train": 493,
+    "val": 106,
+    "test": 106
+  },
+  "validation_candidates": [
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\detector\\best.pt",
+      "imgsz": 640,
+      "confidence": 0.025,
+      "macro_f1": 0.0,
+      "per_class": {
+        "caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 332,
+          "tp": 0,
+          "fp": 0,
+          "fn": 332
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 0,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 79,
+          "tp": 0,
+          "fp": 0,
+          "fn": 79
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\detector\\best.pt",
+      "imgsz": 640,
+      "confidence": 0.05,
+      "macro_f1": 0.0,
+      "per_class": {
+        "caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 332,
+          "tp": 0,
+          "fp": 0,
+          "fn": 332
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 0,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 79,
+          "tp": 0,
+          "fp": 0,
+          "fn": 79
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\detector\\best.pt",
+      "imgsz": 640,
+      "confidence": 0.075,
+      "macro_f1": 0.0,
+      "per_class": {
+        "caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 332,
+          "tp": 0,
+          "fp": 0,
+          "fn": 332
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 0,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 79,
+          "tp": 0,
+          "fp": 0,
+          "fn": 79
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\detector\\best.pt",
+      "imgsz": 640,
+      "confidence": 0.1,
+      "macro_f1": 0.0,
+      "per_class": {
+        "caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 332,
+          "tp": 0,
+          "fp": 0,
+          "fn": 332
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 0,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 79,
+          "tp": 0,
+          "fp": 0,
+          "fn": 79
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\detector\\best.pt",
+      "imgsz": 640,
+      "confidence": 0.15,
+      "macro_f1": 0.0,
+      "per_class": {
+        "caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 332,
+          "tp": 0,
+          "fp": 0,
+          "fn": 332
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 0,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 79,
+          "tp": 0,
+          "fp": 0,
+          "fn": 79
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\detector\\best.pt",
+      "imgsz": 640,
+      "confidence": 0.2,
+      "macro_f1": 0.0,
+      "per_class": {
+        "caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 332,
+          "tp": 0,
+          "fp": 0,
+          "fn": 332
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 0,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 79,
+          "tp": 0,
+          "fp": 0,
+          "fn": 79
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\detector\\best.pt",
+      "imgsz": 640,
+      "confidence": 0.25,
+      "macro_f1": 0.0,
+      "per_class": {
+        "caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 332,
+          "tp": 0,
+          "fp": 0,
+          "fn": 332
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 0,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 79,
+          "tp": 0,
+          "fp": 0,
+          "fn": 79
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\detector\\best.pt",
+      "imgsz": 640,
+      "confidence": 0.35,
+      "macro_f1": 0.0,
+      "per_class": {
+        "caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 332,
+          "tp": 0,
+          "fp": 0,
+          "fn": 332
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 0,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 79,
+          "tp": 0,
+          "fp": 0,
+          "fn": 79
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\detector\\best.pt",
+      "imgsz": 960,
+      "confidence": 0.025,
+      "macro_f1": 0.0,
+      "per_class": {
+        "caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 332,
+          "tp": 0,
+          "fp": 0,
+          "fn": 332
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 0,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 79,
+          "tp": 0,
+          "fp": 0,
+          "fn": 79
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\detector\\best.pt",
+      "imgsz": 960,
+      "confidence": 0.05,
+      "macro_f1": 0.0,
+      "per_class": {
+        "caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 332,
+          "tp": 0,
+          "fp": 0,
+          "fn": 332
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 0,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 79,
+          "tp": 0,
+          "fp": 0,
+          "fn": 79
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\detector\\best.pt",
+      "imgsz": 960,
+      "confidence": 0.075,
+      "macro_f1": 0.0,
+      "per_class": {
+        "caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 332,
+          "tp": 0,
+          "fp": 0,
+          "fn": 332
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 0,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 79,
+          "tp": 0,
+          "fp": 0,
+          "fn": 79
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\detector\\best.pt",
+      "imgsz": 960,
+      "confidence": 0.1,
+      "macro_f1": 0.0,
+      "per_class": {
+        "caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 332,
+          "tp": 0,
+          "fp": 0,
+          "fn": 332
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 0,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 79,
+          "tp": 0,
+          "fp": 0,
+          "fn": 79
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\detector\\best.pt",
+      "imgsz": 960,
+      "confidence": 0.15,
+      "macro_f1": 0.0,
+      "per_class": {
+        "caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 332,
+          "tp": 0,
+          "fp": 0,
+          "fn": 332
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 0,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 79,
+          "tp": 0,
+          "fp": 0,
+          "fn": 79
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\detector\\best.pt",
+      "imgsz": 960,
+      "confidence": 0.2,
+      "macro_f1": 0.0,
+      "per_class": {
+        "caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 332,
+          "tp": 0,
+          "fp": 0,
+          "fn": 332
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 0,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 79,
+          "tp": 0,
+          "fp": 0,
+          "fn": 79
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\detector\\best.pt",
+      "imgsz": 960,
+      "confidence": 0.25,
+      "macro_f1": 0.0,
+      "per_class": {
+        "caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 332,
+          "tp": 0,
+          "fp": 0,
+          "fn": 332
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 0,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 79,
+          "tp": 0,
+          "fp": 0,
+          "fn": 79
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\detector\\best.pt",
+      "imgsz": 960,
+      "confidence": 0.35,
+      "macro_f1": 0.0,
+      "per_class": {
+        "caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 332,
+          "tp": 0,
+          "fp": 0,
+          "fn": 332
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 0,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 79,
+          "tp": 0,
+          "fp": 0,
+          "fn": 79
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\best_model.pt",
+      "imgsz": 640,
+      "confidence": 0.025,
+      "macro_f1": 0.13931603906484016,
+      "per_class": {
+        "caries": {
+          "precision": 0.1444866920152091,
+          "recall": 0.9156626506024096,
+          "f1": 0.24958949096880131,
+          "support": 332,
+          "tp": 304,
+          "fp": 1800,
+          "fn": 28
+        },
+        "deep_caries": {
+          "precision": 0.06201550387596899,
+          "recall": 0.0784313725490196,
+          "f1": 0.06926406926406926,
+          "support": 102,
+          "tp": 8,
+          "fp": 121,
+          "fn": 94
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.13714285714285715,
+          "recall": 0.9113924050632911,
+          "f1": 0.23841059602649006,
+          "support": 79,
+          "tp": 72,
+          "fp": 453,
+          "fn": 7
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\best_model.pt",
+      "imgsz": 640,
+      "confidence": 0.05,
+      "macro_f1": 0.16457720588235294,
+      "per_class": {
+        "caries": {
+          "precision": 0.19078947368421054,
+          "recall": 0.786144578313253,
+          "f1": 0.3070588235294118,
+          "support": 332,
+          "tp": 261,
+          "fp": 1107,
+          "fn": 71
+        },
+        "deep_caries": {
+          "precision": 0.07692307692307693,
+          "recall": 0.0196078431372549,
+          "f1": 0.03125,
+          "support": 102,
+          "tp": 2,
+          "fp": 24,
+          "fn": 100
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.2066420664206642,
+          "recall": 0.7088607594936709,
+          "f1": 0.32,
+          "support": 79,
+          "tp": 56,
+          "fp": 215,
+          "fn": 23
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\best_model.pt",
+      "imgsz": 640,
+      "confidence": 0.075,
+      "macro_f1": 0.17025710138917688,
+      "per_class": {
+        "caries": {
+          "precision": 0.22275334608030592,
+          "recall": 0.7018072289156626,
+          "f1": 0.3381712626995646,
+          "support": 332,
+          "tp": 233,
+          "fp": 813,
+          "fn": 99
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 9,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.25301204819277107,
+          "recall": 0.5316455696202531,
+          "f1": 0.34285714285714286,
+          "support": 79,
+          "tp": 42,
+          "fp": 124,
+          "fn": 37
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\best_model.pt",
+      "imgsz": 640,
+      "confidence": 0.1,
+      "macro_f1": 0.1622093023255814,
+      "per_class": {
+        "caries": {
+          "precision": 0.2408256880733945,
+          "recall": 0.6325301204819277,
+          "f1": 0.3488372093023256,
+          "support": 332,
+          "tp": 210,
+          "fp": 662,
+          "fn": 122
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 6,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.24793388429752067,
+          "recall": 0.379746835443038,
+          "f1": 0.3,
+          "support": 79,
+          "tp": 30,
+          "fp": 91,
+          "fn": 49
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\best_model.pt",
+      "imgsz": 640,
+      "confidence": 0.15,
+      "macro_f1": 0.14288335036821553,
+      "per_class": {
+        "caries": {
+          "precision": 0.2618296529968454,
+          "recall": 0.5,
+          "f1": 0.34368530020703936,
+          "support": 332,
+          "tp": 166,
+          "fp": 468,
+          "fn": 166
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 2,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.22784810126582278,
+          "recall": 0.22784810126582278,
+          "f1": 0.22784810126582278,
+          "support": 79,
+          "tp": 18,
+          "fp": 61,
+          "fn": 61
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\best_model.pt",
+      "imgsz": 640,
+      "confidence": 0.2,
+      "macro_f1": 0.13175534541035283,
+      "per_class": {
+        "caries": {
+          "precision": 0.2753303964757709,
+          "recall": 0.37650602409638556,
+          "f1": 0.31806615776081426,
+          "support": 332,
+          "tp": 125,
+          "fp": 329,
+          "fn": 207
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 1,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.2545454545454545,
+          "recall": 0.17721518987341772,
+          "f1": 0.208955223880597,
+          "support": 79,
+          "tp": 14,
+          "fp": 41,
+          "fn": 65
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\best_model.pt",
+      "imgsz": 640,
+      "confidence": 0.25,
+      "macro_f1": 0.12134671993271656,
+      "per_class": {
+        "caries": {
+          "precision": 0.2993827160493827,
+          "recall": 0.2921686746987952,
+          "f1": 0.29573170731707316,
+          "support": 332,
+          "tp": 97,
+          "fp": 227,
+          "fn": 235
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 0,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.2972972972972973,
+          "recall": 0.13924050632911392,
+          "f1": 0.1896551724137931,
+          "support": 79,
+          "tp": 11,
+          "fp": 26,
+          "fn": 68
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\best_model.pt",
+      "imgsz": 640,
+      "confidence": 0.35,
+      "macro_f1": 0.060966386554621846,
+      "per_class": {
+        "caries": {
+          "precision": 0.2708333333333333,
+          "recall": 0.11746987951807229,
+          "f1": 0.1638655462184874,
+          "support": 332,
+          "tp": 39,
+          "fp": 105,
+          "fn": 293
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 0,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.19047619047619047,
+          "recall": 0.05063291139240506,
+          "f1": 0.08,
+          "support": 79,
+          "tp": 4,
+          "fp": 17,
+          "fn": 75
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\best_model.pt",
+      "imgsz": 960,
+      "confidence": 0.025,
+      "macro_f1": 0.12307533469480372,
+      "per_class": {
+        "caries": {
+          "precision": 0.13279132791327913,
+          "recall": 0.5903614457831325,
+          "f1": 0.2168141592920354,
+          "support": 332,
+          "tp": 196,
+          "fp": 1280,
+          "fn": 136
+        },
+        "deep_caries": {
+          "precision": 0.10714285714285714,
+          "recall": 0.029411764705882353,
+          "f1": 0.046153846153846156,
+          "support": 102,
+          "tp": 3,
+          "fp": 25,
+          "fn": 99
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.14527027027027026,
+          "recall": 0.5443037974683544,
+          "f1": 0.22933333333333333,
+          "support": 79,
+          "tp": 43,
+          "fp": 253,
+          "fn": 36
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\best_model.pt",
+      "imgsz": 960,
+      "confidence": 0.05,
+      "macro_f1": 0.1121301775147929,
+      "per_class": {
+        "caries": {
+          "precision": 0.14160401002506265,
+          "recall": 0.34036144578313254,
+          "f1": 0.2,
+          "support": 332,
+          "tp": 113,
+          "fp": 685,
+          "fn": 219
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 0,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.23333333333333334,
+          "recall": 0.26582278481012656,
+          "f1": 0.2485207100591716,
+          "support": 79,
+          "tp": 21,
+          "fp": 69,
+          "fn": 58
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\best_model.pt",
+      "imgsz": 960,
+      "confidence": 0.075,
+      "macro_f1": 0.08645588667058132,
+      "per_class": {
+        "caries": {
+          "precision": 0.148,
+          "recall": 0.22289156626506024,
+          "f1": 0.1778846153846154,
+          "support": 332,
+          "tp": 74,
+          "fp": 426,
+          "fn": 258
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 0,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.21153846153846154,
+          "recall": 0.13924050632911392,
+          "f1": 0.16793893129770993,
+          "support": 79,
+          "tp": 11,
+          "fp": 41,
+          "fn": 68
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\best_model.pt",
+      "imgsz": 960,
+      "confidence": 0.1,
+      "macro_f1": 0.06437856182365372,
+      "per_class": {
+        "caries": {
+          "precision": 0.14985590778097982,
+          "recall": 0.1566265060240964,
+          "f1": 0.15316642120765833,
+          "support": 332,
+          "tp": 52,
+          "fp": 295,
+          "fn": 280
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 0,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.16666666666666666,
+          "recall": 0.0759493670886076,
+          "f1": 0.10434782608695652,
+          "support": 79,
+          "tp": 6,
+          "fp": 30,
+          "fn": 73
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\best_model.pt",
+      "imgsz": 960,
+      "confidence": 0.15,
+      "macro_f1": 0.03732749132164931,
+      "per_class": {
+        "caries": {
+          "precision": 0.1534090909090909,
+          "recall": 0.08132530120481928,
+          "f1": 0.1062992125984252,
+          "support": 332,
+          "tp": 27,
+          "fp": 149,
+          "fn": 305
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 0,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.14285714285714285,
+          "recall": 0.02531645569620253,
+          "f1": 0.043010752688172046,
+          "support": 79,
+          "tp": 2,
+          "fp": 12,
+          "fn": 77
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\best_model.pt",
+      "imgsz": 960,
+      "confidence": 0.2,
+      "macro_f1": 0.02178037789548581,
+      "per_class": {
+        "caries": {
+          "precision": 0.10588235294117647,
+          "recall": 0.02710843373493976,
+          "f1": 0.04316546762589928,
+          "support": 332,
+          "tp": 9,
+          "fp": 76,
+          "fn": 323
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 0,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.16666666666666666,
+          "recall": 0.02531645569620253,
+          "f1": 0.04395604395604396,
+          "support": 79,
+          "tp": 2,
+          "fp": 10,
+          "fn": 77
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\best_model.pt",
+      "imgsz": 960,
+      "confidence": 0.25,
+      "macro_f1": 0.011273188520691296,
+      "per_class": {
+        "caries": {
+          "precision": 0.10256410256410256,
+          "recall": 0.012048192771084338,
+          "f1": 0.0215633423180593,
+          "support": 332,
+          "tp": 4,
+          "fp": 35,
+          "fn": 328
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 0,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.16666666666666666,
+          "recall": 0.012658227848101266,
+          "f1": 0.023529411764705882,
+          "support": 79,
+          "tp": 1,
+          "fp": 5,
+          "fn": 78
+        }
+      }
+    },
+    {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\best_model.pt",
+      "imgsz": 960,
+      "confidence": 0.35,
+      "macro_f1": 0.001466275659824047,
+      "per_class": {
+        "caries": {
+          "precision": 0.1111111111111111,
+          "recall": 0.0030120481927710845,
+          "f1": 0.005865102639296188,
+          "support": 332,
+          "tp": 1,
+          "fp": 8,
+          "fn": 331
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 102,
+          "tp": 0,
+          "fp": 0,
+          "fn": 102
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 27,
+          "tp": 0,
+          "fp": 0,
+          "fn": 27
+        },
+        "impacted_tooth": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 79,
+          "tp": 0,
+          "fp": 3,
+          "fn": 79
+        }
+      }
+    }
+  ],
+  "validation_selected": {
+    "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\best_model.pt",
+    "imgsz": 640,
+    "confidence": 0.075,
+    "macro_f1": 0.17025710138917688,
+    "per_class": {
+      "caries": {
+        "precision": 0.22275334608030592,
+        "recall": 0.7018072289156626,
+        "f1": 0.3381712626995646,
+        "support": 332,
+        "tp": 233,
+        "fp": 813,
+        "fn": 99
+      },
+      "deep_caries": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 102,
+        "tp": 0,
+        "fp": 9,
+        "fn": 102
+      },
+      "periapical_lesion": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 27,
+        "tp": 0,
+        "fp": 0,
+        "fn": 27
+      },
+      "impacted_tooth": {
+        "precision": 0.25301204819277107,
+        "recall": 0.5316455696202531,
+        "f1": 0.34285714285714286,
+        "support": 79,
+        "tp": 42,
+        "fp": 124,
+        "fn": 37
+      }
+    }
+  },
+  "test": {
+    "baseline": {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\detector\\best.pt",
+      "imgsz": 640,
+      "confidence": 0.25,
+      "macro_f1": 0.0,
+      "per_class": {
+        "caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 330,
+          "tp": 0,
+          "fp": 0,
+          "fn": 330
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 92,
+          "tp": 0,
+          "fp": 0,
+          "fn": 92
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 23,
+          "tp": 0,
+          "fp": 0,
+          "fn": 23
+        },
+        "impacted_tooth": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 86,
+          "tp": 0,
+          "fp": 0,
+          "fn": 86
+        }
+      }
+    },
+    "selected": {
+      "checkpoint": "C:\\Users\\kunal\\Downloads\\ai_dentistry_project\\ai_dentistry\\models\\best_model.pt",
+      "imgsz": 640,
+      "confidence": 0.075,
+      "macro_f1": 0.1794037280935217,
+      "per_class": {
+        "caries": {
+          "precision": 0.22825070159027128,
+          "recall": 0.7393939393939394,
+          "f1": 0.3488205861329521,
+          "support": 330,
+          "tp": 244,
+          "fp": 825,
+          "fn": 86
+        },
+        "deep_caries": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 92,
+          "tp": 0,
+          "fp": 10,
+          "fn": 92
+        },
+        "periapical_lesion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 23,
+          "tp": 0,
+          "fp": 0,
+          "fn": 23
+        },
+        "impacted_tooth": {
+          "precision": 0.2653061224489796,
+          "recall": 0.6046511627906976,
+          "f1": 0.36879432624113473,
+          "support": 86,
+          "tp": 52,
+          "fp": 144,
+          "fn": 34
+        }
+      }
+    }
+  }
+}

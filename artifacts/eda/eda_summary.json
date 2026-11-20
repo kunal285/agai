@@ -1,0 +1,50 @@
+{
+  "dataset_level": {
+    "total_images": 12,
+    "total_annotations": 25,
+    "categories_found": [
+      "caries",
+      "periapical_lesion",
+      "impacted_tooth",
+      "deep_caries"
+    ]
+  },
+  "class_distribution": {
+    "caries": {
+      "count": 8,
+      "percentage": 32.0
+    },
+    "periapical_lesion": {
+      "count": 6,
+      "percentage": 24.0
+    },
+    "impacted_tooth": {
+      "count": 6,
+      "percentage": 24.0
+    },
+    "deep_caries": {
+      "count": 5,
+      "percentage": 20.0
+    }
+  },
+  "imbalance_ratios": {
+    "caries": 1.6,
+    "periapical_lesion": 1.2,
+    "impacted_tooth": 1.2,
+    "deep_caries": 1.0
+  },
+  "image_resolution_stats": {
+    "width_mean": 1691.3,
+    "width_min": 1500,
+    "width_max": 2048,
+    "height_mean": 845.7,
+    "height_min": 750,
+    "height_max": 1024,
+    "aspect_ratio_mean": 2.0
+  },
+  "bbox_stats": {
+    "mean_area_pct_of_image": 0.211,
+    "median_area_pct_of_image": 0.117,
+    "mean_aspect_ratio": 0.79
+  }
+}

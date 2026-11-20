@@ -1,0 +1,13 @@
+image_id,file_name,split,width,height,annotation_count,classes_present
+10,sample_xray_010.png,train,1800,900,3,deep_caries;periapical_lesion
+12,sample_xray_012.png,train,1500,750,2,caries;deep_caries
+4,sample_xray_004.png,train,1600,800,2,impacted_tooth
+5,sample_xray_005.png,train,1500,750,2,caries;impacted_tooth
+2,sample_xray_002.png,train,1800,900,3,deep_caries;impacted_tooth
+11,sample_xray_011.png,train,1600,800,2,deep_caries;impacted_tooth
+6,sample_xray_006.png,train,1500,750,2,caries;periapical_lesion
+3,sample_xray_003.png,train,1800,900,2,caries;periapical_lesion
+9,sample_xray_009.png,val,2048,1024,4,caries
+8,sample_xray_008.png,val,2048,1024,1,periapical_lesion
+7,sample_xray_007.png,test,1500,750,1,periapical_lesion
+1,sample_xray_001.png,test,1600,800,1,periapical_lesion

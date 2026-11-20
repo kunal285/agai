@@ -1,36 +1,77 @@
+# Project Configuration: AI-Assisted Dental X-ray Screening
+# Educational research prototype • Not a clinical diagnostic or treatment system
+
 project:
   name: "Agentic AI-Assisted Dental X-ray Screening"
+  research_question: "Does a detector + CNN-confirmation pipeline improve macro-F1 over YOLO alone while remaining interactive?"
   seed: 42
-  educational_only: true
-paths:
-  dataset_root: "data/DENTEX"
-  manifests_dir: "artifacts/manifests"
-  reports_dir: "artifacts/reports"
-  crops_dir: "artifacts/crops"
-  detector_checkpoint: "models/detector/best.pt"
-  classifier_checkpoint: "models/classifier/best.pt"
-model:
-  detector_imgsz: 640
-  detector_confidence: 0.25
-  classifier_image_size: 224
-  classifier_architecture: "efficientnet_b0"
-  classifier_confidence_threshold: 0.65
-quality:
-  min_width: 256
-  min_height: 128
-  min_contrast_std: 8.0
-  min_laplacian_variance: 10.0
-  min_brightness: 5.0
-  max_brightness: 250.0
-training:
-  detector_epochs: 50
-  detector_batch: 8
-  classifier_epochs: 20
-  classifier_batch: 16
-  learning_rate: 0.0003
-  num_workers: 2
+  disclaimer: "Educational research prototype • Not a clinical diagnostic or treatment system"
+
+agentic_ai:
+  enabled: true
+  primary_model: "gpt-6.1-sol"
+  advanced_model: "gpt-6.2-astra"
+  budget_model: "gpt-6-luna"
+  timeout_seconds: 30.0
+  max_retries: 2
+  max_turns: 12
+
 classes:
   - caries
   - deep_caries
   - periapical_lesion
   - impacted_tooth
+
+paths:
+  raw_data_dir: "data/DENTEX"
+  sample_data_dir: "data/DENTEX_sample"
+  yolo_data_dir: "data/processed/yolo"
+  crops_dir: "artifacts/crops"
+  manifests_dir: "artifacts/manifests"
+  eda_dir: "artifacts/eda"
+  reports_dir: "artifacts/reports"
+  gradcam_dir: "artifacts/gradcam"
+  detector_checkpoint: "models/best_model.pt"
+  classifier_checkpoint: "models/classifier/best.pt"
+
+split:
+  train_ratio: 0.70
+  val_ratio: 0.15
+  test_ratio: 0.15
+  split_level: "image"  # Strictly image-level to prevent leakage
+  seed: 42
+
+preprocessing:
+  mode: "raw"  # Switch between "raw" and "enhanced" (CLAHE)
+  clahe:
+    clip_limit: 2.0
+    tile_grid_size: [8, 8]
+  target_size: [640, 640]
+
+model:
+  detector:
+    architecture: "yolov8n.pt"  # Lightweight for single GPU / CPU
+    imgsz: 640
+    confidence_threshold: 0.075  # Selected on the DENTEX validation split
+    review_confidence_threshold: 0.25
+    iou_threshold: 0.45
+    epochs: 50
+    batch_size: 8
+  classifier:
+    architecture: "efficientnet_b0"  # Compact CNN: efficientnet_b0 or resnet18
+    imgsz: 224
+    crop_padding: 0.10  # 10% bounding box context padding
+    confidence_threshold: 0.65
+    epochs: 25
+    batch_size: 16
+    learning_rate: 0.0003
+    weight_decay: 0.0001
+    early_stopping_patience: 5
+
+quality:
+  min_width: 512
+  min_height: 256
+  min_contrast_std: 10.0
+  min_laplacian_variance: 15.0  # Blur detection threshold
+  min_brightness: 10.0
+  max_brightness: 245.0

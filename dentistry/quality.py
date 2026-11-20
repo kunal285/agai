@@ -18,7 +18,9 @@ def assess_image(image: np.ndarray, config: dict[str, Any] | None = None) -> dic
     if not float(cfg.get("min_brightness",5))<=metrics["brightness_mean"]<=float(cfg.get("max_brightness",250)): warnings.append("Brightness is outside configured range")
     return {"status":"poor" if warnings else "acceptable","acceptable":not warnings,"warnings":warnings,"metrics":metrics}
 
-def read_image(source: str | Path | bytes) -> np.ndarray:
+def read_image(source: str | Path | bytes | np.ndarray) -> np.ndarray:
+    if isinstance(source, np.ndarray):
+        return source
     if isinstance(source, bytes):
         arr=np.frombuffer(source,dtype=np.uint8); image=cv2.imdecode(arr,cv2.IMREAD_COLOR)
     else: image=cv2.imread(str(source),cv2.IMREAD_COLOR)

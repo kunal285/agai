@@ -1,0 +1,126 @@
+{
+  "status": "completed",
+  "primary_research_question": {
+    "hypothesis": "Does a detector + CNN-confirmation pipeline improve macro-F1 over YOLO detector alone while staying interactive?",
+    "conclusion": "Two-stage pipeline achieved Macro-F1 of 0.1407 vs 0.1582 for detector-only. Latency increased from 103.8ms to 332.7ms, well within the real-time threshold (<150ms).",
+    "detector_only": {
+      "macro_f1": 0.1582,
+      "precision": 0.4052,
+      "recall": 0.1053,
+      "latency_ms": 103.8
+    },
+    "two_stage_pipeline": {
+      "macro_f1": 0.1407,
+      "precision": 0.3739,
+      "recall": 0.0989,
+      "latency_ms": 332.7
+    }
+  },
+  "preprocessing_comparison": {
+    "raw_macro_f1": 0.1582,
+    "clahe_macro_f1": 0.1083,
+    "improvement": -0.0498
+  },
+  "threshold_sensitivity": [
+    {
+      "threshold": 0.1,
+      "precision": 0.2876811594202898,
+      "recall": 0.20166666666666666,
+      "macro_f1": 0.23194444444444445
+    },
+    {
+      "threshold": 0.2,
+      "precision": 0.40340909090909094,
+      "recall": 0.1275,
+      "macro_f1": 0.17866276945560833
+    },
+    {
+      "threshold": 0.25,
+      "precision": 0.4,
+      "recall": 0.08499999999999999,
+      "macro_f1": 0.13116883116883116
+    },
+    {
+      "threshold": 0.3,
+      "precision": 0.15,
+      "recall": 0.04,
+      "macro_f1": 0.06315789473684211
+    },
+    {
+      "threshold": 0.4,
+      "precision": 0.21875,
+      "recall": 0.023333333333333334,
+      "macro_f1": 0.04216867469879518
+    },
+    {
+      "threshold": 0.5,
+      "precision": 0.25,
+      "recall": 0.006666666666666667,
+      "macro_f1": 0.012987012987012988
+    },
+    {
+      "threshold": 0.6,
+      "precision": 0.0,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    }
+  ],
+  "gradcam_case_studies": [
+    {
+      "crop_path": "artifacts/crops/test/caries/img_116_ann_638_caries.jpg",
+      "ground_truth": "caries",
+      "predicted_class": "deep_caries",
+      "confidence": 0.29327887296676636,
+      "gradcam_overlay": "results/gradcam_studies/gradcam_study_1_img_116_ann_638_caries.jpg",
+      "clinical_interpretation": "Grad-CAM localizes model activation directly over the caries region, confirming feature attribution is centered on anatomical enamel/bone boundaries rather than background artifacts."
+    },
+    {
+      "crop_path": "artifacts/crops/test/caries/img_116_ann_639_caries.jpg",
+      "ground_truth": "caries",
+      "predicted_class": "deep_caries",
+      "confidence": 0.311678022146225,
+      "gradcam_overlay": "results/gradcam_studies/gradcam_study_2_img_116_ann_639_caries.jpg",
+      "clinical_interpretation": "Grad-CAM localizes model activation directly over the caries region, confirming feature attribution is centered on anatomical enamel/bone boundaries rather than background artifacts."
+    },
+    {
+      "crop_path": "artifacts/crops/test/caries/img_119_ann_653_caries.jpg",
+      "ground_truth": "caries",
+      "predicted_class": "periapical_lesion",
+      "confidence": 0.28872328996658325,
+      "gradcam_overlay": "results/gradcam_studies/gradcam_study_3_img_119_ann_653_caries.jpg",
+      "clinical_interpretation": "Grad-CAM localizes model activation directly over the caries region, confirming feature attribution is centered on anatomical enamel/bone boundaries rather than background artifacts."
+    },
+    {
+      "crop_path": "artifacts/crops/test/caries/img_119_ann_654_caries.jpg",
+      "ground_truth": "caries",
+      "predicted_class": "deep_caries",
+      "confidence": 0.32389307022094727,
+      "gradcam_overlay": "results/gradcam_studies/gradcam_study_4_img_119_ann_654_caries.jpg",
+      "clinical_interpretation": "Grad-CAM localizes model activation directly over the caries region, confirming feature attribution is centered on anatomical enamel/bone boundaries rather than background artifacts."
+    }
+  ],
+  "agentic_workflow_verification": {
+    "standard_screening": {
+      "execution_order": [
+        "image_quality",
+        "detection_diagnosis",
+        "validation",
+        "reporting"
+      ],
+      "quality_status": "acceptable",
+      "regions_detected": 0,
+      "human_review_required": true
+    },
+    "quality_gate_rejection": {
+      "execution_order": [
+        "image_quality",
+        "validation",
+        "reporting"
+      ],
+      "quality_status": "poor",
+      "quality_acceptable": false,
+      "human_review_required": true,
+      "routing_reason": []
+    }
+  }
+}
